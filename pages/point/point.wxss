@@ -1,0 +1,46 @@
+page {
+}
+.nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20vw;
+  box-sizing: border-box;
+  background: white;
+}
+.nav text {
+  display: inline-block;
+  padding: 10px;
+  border-bottom: 2px solid transparent;
+}
+.nav_active {
+  border-color: #7a3ce9 !important;
+}
+.main {
+  background: #7a3ce9;
+  margin: 15px;
+  padding: 10vmin 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center;
+}
+.main text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.38);
+}
+.point {
+  font-size: 24px !important;
+  color: white !important;
+}
+.log-container {
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.log-item {
+  background: white;
+  padding: 5px 10px;
+  margin-bottom: 1px;
+}
+.date {
+  font-size: 14px;
+  color: grey;
+}

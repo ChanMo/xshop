@@ -1,0 +1,46 @@
+<view>
+  <view class="nav">
+    <navigator 
+      url="/pages/orderList/orderList?active=unpay"
+      class="{{active == 'unpay' && 'active'}}">待付款</navigator>
+    <navigator 
+      url="/pages/orderList/orderList?active=undelivery"
+      class="{{active == 'undelivery' && 'active'}}">待发货</navigator>
+    <navigator 
+      url="/pages/orderList/orderList?active=unreceive"
+      class="{{active == 'unreceive' && 'active'}}">待收货</navigator>
+    <navigator 
+      url="/pages/orderList/orderList?active=finished"
+      class="{{active == 'finished' && 'active'}}">已收货</navigator>
+    <navigator 
+      url="/pages/orderList/orderList?active=refund"
+      class="{{active == 'refund' && 'active'}}">退款</navigator>
+  </view>
+  <scroll-view>
+    <view class="order">
+      <navigator url="/pages/order/order?id=1">
+        <text>订单号: 20181010101010</text>
+      </navigator>
+      <navigator url="/pages/order/order?id=1">
+        <view class="commodity-section">
+          <image class="commodity-section__cover"
+            src="https://img.alicdn.com/bao/uploaded/TB1lO6XJpXXXXc_XFXXLhc5_XXX_054423.jpg_160x160.jpg"/>
+          <view class="commodity-section__right">
+            <view><text>面膜三部曲10片</text></view>
+            <view><text class="text-grey">容量:50ml</text></view>
+            <view>
+              <text class="price">199</text>
+              <text>x1</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+      <view>
+        <text class="text-grey">共2件商品 合计<text class="price">120</text>(含运费10.00)</text>
+      </view>
+      <view style="text-align:right">
+        <button size="mini">支付</button>
+      </view>
+    </view>
+  </scroll-view>
+</view>

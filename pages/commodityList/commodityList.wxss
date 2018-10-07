@@ -1,0 +1,31 @@
+/* pages/commodityList/commodityList.wxss */
+page {
+  background: white;
+}
+.nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  border-bottom: 1px solid lightgrey;
+}
+.nav text {
+  font-size: 14px;
+}
+.nav_active {
+  color: #7a3ce9;
+}
+scroll-view {
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.commodity {
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  float: left;
+}
+.commodity image {
+  width: 40vw;
+  height: 40vw;
+}

@@ -1,0 +1,19 @@
+/* pages/qrcode/qrcode.wxss */
+page {
+  background: white;
+  background-image: url('http://doyou.oss-cn-beijing.aliyuncs.com/images/bg.png');
+  background-size: cover;
+  background-repeat: norepeat;
+  background-position: center;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.qrcode {
+  width: 38vmin;
+  height: 38vmin;
+  margin-bottom: 12vh;
+}

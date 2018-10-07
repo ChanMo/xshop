@@ -1,0 +1,58 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/home/home",
+    "pages/category/category",
+    "pages/light/light",
+    "pages/article/article",
+    "pages/page/page",
+    "pages/cart/cart",
+    "pages/user/user",
+    "pages/commodity/commodity",
+    "pages/commodityList/commodityList",
+    "pages/brand/brand",
+    "pages/search/search",
+    "pages/order/order",
+    "pages/orderList/orderList",
+    "pages/qrcode/qrcode",
+    "pages/buy/buy",
+    "pages/point/point",
+    "pages/delivery/delivery"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#7a3ce9",
+    "navigationBarTitleText": "MayBe",
+    "navigationBarTextStyle":"light"
+  },
+  "tabBar": {
+      "list": [{
+          "pagePath": "pages/index/index",
+          "text": "首页",
+          "iconPath": "./images/首页.png",
+          "selectedIconPath": "./images/首页.png"
+      }, {
+          "pagePath": "pages/category/category",
+          "text": "分类",
+          "iconPath": "./images/分类.png",
+          "selectedIconPath": "./images/分类.png"
+      }, {
+          "pagePath": "pages/light/light",
+          "text": "微淘",
+          "iconPath": "./images/微淘.png",
+          "selectedIconPath": "./images/微淘.png"
+      }, {
+          "pagePath": "pages/cart/cart",
+          "text": "购物车",
+          "iconPath": "./images/购物车.png",
+          "selectedIconPath": "./images/购物车.png"
+      }, {
+          "pagePath": "pages/user/user",
+          "text": "我的",
+          "iconPath": "./images/我的.png",
+          "selectedIconPath": "./images/我的.png"
+      }],
+      "selectedColor": "#7a3ce9"
+  }
+}

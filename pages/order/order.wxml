@@ -1,0 +1,31 @@
+<scroll-view>
+  <view class="address-container">
+    <view>
+      <text>陈某某</text>
+      <text style="color:grey">15550001234</text>
+    </view>
+    <view>
+      <text>山东省济南市高新区会展西路88号</text>
+    </view>
+  </view>
+  <view class="commodity-container">
+    <navigator 
+      style="display:flex;padding:10px;"
+      url="/pages/commodity/commodity?id=1">
+      <image 
+        src="https://img.alicdn.com/bao/uploaded/TB1GcCfHXXXXXbQaXXXd0E9FFXX_095524.jpg_160x160.jpg"
+        style="width:120px;height:120px;" />
+      <view style="flex-grow:1;padding-left:10px;">
+        <view style="font-size:14px;">包邮韩国VDL贝壳提亮液 细</view>
+        <view class="text-small text-grey">x1</view>
+        <view class="price">120.00</view>
+      </view>
+    </navigator>
+  </view>
+  <view class="section">
+    <view>运费: 0</view>
+    <view>订单金额: 120.00</view>
+    <view>订单编号: 12030030301</view>
+    <view>创建时间: 2018/09/10</view>
+  </view>
+</scroll-view>

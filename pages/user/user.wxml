@@ -1,0 +1,46 @@
+<scroll-view class="container">
+  <view class="header" wx:if="{{user}}">
+    <image src="{{user.avatarUrl}}" class="avatar" />
+    <text class="text-primary">{{user.nickName}}</text>
+  </view>
+  <view class="header" wx:else>
+    <image src="http://doyou.oss-cn-beijing.aliyuncs.com/images/avatar1.jpg" class="avatar" />
+    <button open-type="getUserInfo" size="mini" bindgetuserinfo="onGotUserInfo">显示信息</button>
+  </view>
+  <view>
+    <view class="order-header">
+      <text class="text-primary">我的订单</text>
+      <navigator class="text-grey text-small" 
+        url="/pages/orderList/orderList">查看全部></navigator>
+    </view>
+    <view class="grid">
+      <block wx:for="{{order}}">
+        <navigator class="grid-item" url="/pages/orderList/orderList?active={{item.param}}">
+          <image src="{{item.icon}}" class="grid-icon" />
+          <view>
+            <text class="text-secondary grid-text"
+              style="font-size:14px">{{item.name}}</text>
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+  <view class="delivery">
+    <view style="font-size:14px;color:#7a3ce9;margin-bottom:2px">最新物流</view>
+    <navigator class="delivery__main" url="/pages/delivery/delivery">
+      <image src="https://img.alicdn.com/imgextra/i2/TB2Z_AouFkoBKNjSZFkXXb4tFXa_!!0-juitemmedia.jpg_270x270.jpg" />
+      <view style="margin-left:10px;">
+        <view class="text-primary" style="font-size:12px;">已揽件</view>
+        <view class="text-grey" style="font-size:12px;">【上海市】哈哈区已收件</view>
+      </view>
+    </navigator>
+  </view>
+  <view class="list">
+    <block wx:for="{{link}}">
+      <navigator class="list-item" url="{{item.path}}">
+        <image src="{{item.icon}}" class="list-icon" />
+        <text class="text" style="font-size:14px;">{{item.name}}</text>
+      </navigator>
+    </block>
+  </view>
+</scroll-view>

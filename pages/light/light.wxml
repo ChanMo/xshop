@@ -1,0 +1,11 @@
+<scroll-view class="container">
+  <navigator url="/pages/article/article" class="article" wx:for="{{data}}">
+    <view class="header">
+      <text>{{item.title}}</text></view>
+    <view class="image-container">
+      <view wx:for="{{item.images}}">
+        <image src="{{item}}" /></view>
+    </view>
+    <view class="date"><text>06-15 14:20</text></view>
+  </navigator>
+</scroll-view>

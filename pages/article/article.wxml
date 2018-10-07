@@ -1,0 +1,13 @@
+<import src="../../templates/commodity" />
+<scroll-view class="container">
+  <text class="header">【今日推荐】DOYOU品牌折扣活动</text>
+  <rich-text nodes="<p>在今天上午举办的 Synology 2019 会议中，Synology 发布了自家的新一代 DiskStation Manager 7.0（DSM 7.0）管理系统。在诸多网通公司中，鲜少有如此重视操作界面的体验和功能的，而在这方面持续的改进，也依然是 DSM 7.0 的重心所在。</p><p>DSM 7.0首要的就是继续简化安装与操作，除了简单到不用电脑，只要通过手机就能完成安装程序之外，也新增了一个统一的网页二维码登录系统，只要用手机上的 Synology app 扫一下，就可以直接完成登录，并且取决扫的时候所使用的 app，直接打开对应的软件。</p>" style="margin-bottom:15px;display:block;">
+  </rich-text>
+  <view class="commodity-container">
+    <template is="commodity" data="{{out:15,flex:3}}" />
+    <template is="commodity" data="{{out:15,flex:3}}" />
+    <template is="commodity" data="{{out:15,flex:3}}" />
+    <template is="commodity" data="{{out:15,flex:3}}" />
+    <view style="clear:both"></view>
+  </view>
+</scroll-view>

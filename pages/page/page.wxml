@@ -1,0 +1,7 @@
+<scroll-view class="container">
+  <text class="header">{{page.title}}</text>
+  <rich-text 
+    nodes="{{page.content}}" 
+    style="margin-bottom:15px;display:block;">
+  </rich-text>
+</scroll-view>

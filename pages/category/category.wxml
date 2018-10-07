@@ -1,0 +1,20 @@
+<import src="../../templates/search.wxml" />
+
+<template is="search" />
+<view class="container">
+  <view class="left">
+    <view wx:for="{{category}}" 
+      bindtap="setActive" data-index="{{index}}"
+      class="left__item {{active == index && 'left__item_active'}}">
+      <view>{{item.name}}</view>
+    </view>
+  </view>
+  <view class="right">
+    <navigator wx:for="{{category[active].items}}"
+      url="/pages/commodityList/commodityList?category={{item.id}}" 
+      class="right__item">
+      <image src="{{item.image}}" mode="aspectFit" />
+      <view><text style="font-size:14px;">{{item.name}}</text></view>
+    </navigator>
+  </view>
+</view>

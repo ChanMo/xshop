@@ -1,0 +1,38 @@
+/* pages/light/light.wxss */
+page {
+  background: white;
+}
+.container {
+  padding: 15px;
+  box-sizing: border-box;
+}
+.article {
+  margin-bottom: 20px;
+}
+.header {
+  margin-bottom: 15px;
+}
+.header text {
+  font-size: 16px;
+  color: #333;
+}
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.image-container view {
+  width: calc((100vw - 30px) /3);
+  justify-content: center;
+  display: flex;
+  margin-bottom: 10px;
+}
+.image-container image {
+  width: 25vw;
+  height: 25vw;
+}
+.date {
+  text-align: right;
+}
+.date text {
+  color: grey;
+}

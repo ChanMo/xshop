@@ -1,0 +1,93 @@
+/**app.wxss**/
+
+/**
+ * primary: #7a3ce9
+ * secondary: 
+ * price: #f30909
+ * white: white
+ * bg: 
+ * dark: black
+ * lightgrey: #a6a4a9
+ * darkgrey: #5c5c5c text
+ */
+
+:root {
+  --primary: #7a3ce9;
+}
+
+page {
+  background: #f5f5f5;
+}
+
+text {
+  color: #202021;
+  font-size: 32rpx;
+  font-size: 16px;
+}
+.text {
+  color: #202021;
+  font-size: 32rpx;
+  font-size: 16px;
+}
+.text-white {
+  color: white;
+}
+.text-primary {
+  color: #7a3ce9;
+  font-size: 32rpx;
+}
+.text-secondary {
+  color: #505050;
+  font-size: 32rpx;
+}
+.text-grey {
+  font-weight: 200;
+  color: #a6a4a9;
+}
+.text-small {
+  font-size: 14px;
+}
+.price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f30909;
+}
+.float-right {
+  float: right;
+}
+.text-right {
+  float: right;
+}
+
+/** horizontal view **/
+.row {
+  display: flex;
+  align-items: center;
+}
+.row_between {
+  justify-content: space-bewteen;
+}
+
+.flex_bottom {
+  align-self: flex-end
+}
+
+/** view **/
+.section {
+  background: white;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+.commodity-section {
+  display: flex;
+  background: white;
+  padding: 10px;
+}
+.commodity-section__cover {
+  width: 120px;
+  height: 120px;
+}
+.commodity-section__right {
+  flex-grow: 1;
+  padding-left: 10px;
+}

@@ -1,0 +1,19 @@
+<scroll-view>
+  <view class="header">
+    <image 
+      style="width:100px;height:100px;"
+      src="https://img.alicdn.com/imgextra/i2/TB2nMPEemzqK1RjSZPcXXbTepXa_!!0-juitemmedia.jpg_270x270.jpg" />
+    <view class="header__right">
+      <view style="font-size:14px;margin-bottom:10px;">已签收</view>
+      <view style="font-size:12px;color:grey;">申通快递: 201808120091931</view>
+    </view>
+  </view>
+  <view class="delivery">
+    <view class="delivery__item">【收货地址】中国山东省济南市高新区</view>
+    <view class="delivery__item">已签收</view>
+    <view class="delivery__item">派送中</view>
+    <view class="delivery__item">运输中</view>
+    <view class="delivery__item">已揽件</view>
+    <view class="delivery__item">已发货</view>
+  </view>
+</scroll-view>

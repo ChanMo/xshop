@@ -1,0 +1,21 @@
+<view class="nav">
+  <text class="nav_active">人群</text>
+  <text>积分来源</text>
+  <text>积分使用</text>
+</view>
+<view class="container">
+  <view class="main">
+    <view><text class="point">1200</text></view>
+    <view><text>获取积分</text></view>
+  </view>
+  <scroll-view class="log-container">
+    <view class="log-item">
+      <view><text>购买了MAY护肤三部曲</text></view>
+      <view><text class="date">2018-09-01</text></view>
+    </view>
+    <view class="log-item">
+      <view><text>购买了MAY护肤三部曲</text></view>
+      <view><text class="date">2018-09-01</text></view>
+    </view>
+  </scroll-view>
+</view>

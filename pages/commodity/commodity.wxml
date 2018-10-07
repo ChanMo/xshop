@@ -1,0 +1,57 @@
+<view>
+  <scroll-view style="margin-bottom:50px;">
+    <swiper 
+      autoplay="true"
+      circular="true"
+      indicator-active-color="#7a3ce9"
+      indicator-dots="true"
+      style="height:100vw">
+      <block wx:for="{{commodity.images}}">
+        <swiper-item>
+          <image src="{{item}}" style="width:100vw;height:100vw" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="container section" style="padding:20px 10px;">
+      <view><text class="text">{{commodity.name}}</text></view>
+      <view>
+        <text class="price" style="font-size:10px;">￥</text>
+        <text class="price" style="font-size:18px;font-weight:bold;">{{commodity.price}}</text>
+        <text class="text-grey float-right" style="font-size:14px;">快递:10.00</text>
+      </view>
+    </view>
+    <view class="section">
+      <navigator 
+        url="/pages/brand/brand"
+        style="display:flex;align-items:center;padding:0px;">
+        <image 
+          src="{{commodity.brand.logo}}" 
+          style="width:30px;height:30px;border-radius:15px;" />
+        <text style="margin-left:5px;">{{commodity.brand.name}}</text>
+        <text style="flex-grow:1;text-align:right;color:#a6a4a9;font-size:14px;">进入品牌  ></text>
+      </navigator>
+    </view>
+    <view class="section">
+      <view style="margin-bottom:10px;"><text class="text-primary">商品详情</text></view>
+      <rich-text nodes="{{commodity.content}}"></rich-text>
+    </view>
+  </scroll-view>
+  <view class="action">
+    <navigator
+      url="/pages/cart/cart"
+      style="flex-grow:1;padding:0 15px;display:flex;align-items:center;">
+      <image 
+        style="width:30px;height:30px;"
+        src="http://doyou.oss-cn-beijing.aliyuncs.com/icon/shopping_cart.png" />
+      <text style="margin-left:8px;font-size:14px;color:#3a3a3a">购物车</text>
+    </navigator>
+    <navigator
+      url="/pages/cart/cart"
+      class="button" 
+      style="background-color:#fe6487">加入购物车</navigator>
+    <navigator 
+      url="/pages/buy/buy"
+      class="button" 
+      style="background-color:#02baf2">立即购买</navigator>
+  </view>
+</view>

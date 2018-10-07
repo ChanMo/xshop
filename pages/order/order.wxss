@@ -1,0 +1,21 @@
+/* pages/order/order.wxss */
+page {
+  background: white;
+}
+.address-container {
+  padding: 15px;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px lightgrey;
+}
+.commodity-container {
+  padding: 0 15px;
+  margin-bottom: 10px;
+}
+.section {
+  padding: 0 15px
+}
+.section view {
+  font-size: 14px;
+  color: grey;
+}

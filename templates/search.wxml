@@ -1,0 +1,6 @@
+<template name="search">
+  <navigator url="/pages/search/search" style="height:32px;line-height:32px;margin:10px 15px;border:1px solid #7a3ce9;border-radius:16px;padding:0 10px;display:flex;justify-content:space-between;align-items:center;">
+    <text class="text-grey text-small">输入关键字进行搜索</text>
+    <image src="../../images/search.png" style="width:20px;height:20px" />
+  </navigator>
+</template>

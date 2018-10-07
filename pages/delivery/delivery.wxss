@@ -1,0 +1,21 @@
+page {
+  background: white;
+}
+.header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.header__right {
+  flex-grow: 1;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+.delivery {
+  margin-left: 20px;
+}
+.delivery__item {
+  font-size: 14px;
+  margin-bottom: 10px;
+}

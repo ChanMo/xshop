@@ -1,0 +1,5 @@
+<view class="container">
+  <image 
+    class="qrcode"
+    src="http://p12.qhimg.com/dr/360_210_/t0152cccec906b7a5e0.png" />
+</view>

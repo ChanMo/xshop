@@ -1,0 +1,23 @@
+page {
+  background: #f5f5f5;
+}
+.container {
+  padding: 20px;
+}
+
+.action {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 -1px 2px lightgrey;
+  background: white;
+}
+.button {
+  padding: 15px 25px;
+  color: white;
+  font-size: 14px;
+}

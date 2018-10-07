@@ -1,0 +1,51 @@
+/* pages/category/category.wxss */
+page {
+  background: white;
+}
+.container {
+  display: flex;
+}
+.left {
+  width: 24%;
+  border-top: 1px solid #7a3ce9;
+}
+.left__item {
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #7a3ce9;
+  border-right: 1px solid #7a3ce9;
+}
+.left__item image {
+  width: 25px;
+  height: 25px;
+}
+.left__item view {
+  font-size: 12px;
+  color: #3a3a3a;
+}
+.left__item_active {
+  background-color: #7a3ce9;
+}
+.left__item_active view {
+  font-size: 12px;
+  color: white;
+}
+.right {
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.right__item {
+  width: calc(100%/3);
+  text-align: center;
+  margin-bottom: 10px;
+}
+.right__item view {
+  margin-top: -8px;
+}
+.right__item image {
+  width: 18vw;
+  height: 18vw;
+}

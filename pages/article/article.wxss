@@ -1,0 +1,18 @@
+page {
+  background: white;
+}
+.container {
+  padding: 15px;
+  box-sizing: border-box;
+}
+.header {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+rich-text {
+  padding: 10px;
+  font-size: 14px;
+  color: #3a3a3a;
+}

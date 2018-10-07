@@ -1,0 +1,15 @@
+<import src="../../templates/search.wxml" />
+<import src="../../templates/commodity.wxml" />
+<template is="search" />
+
+<view class="nav">
+  <text class="nav_active">综合</text>
+  <text>价格</text>
+  <text>销量</text>
+</view>
+
+<scroll-view>
+  <template wx:for="{{data}}" 
+    is="commodity"
+    data="{{out:10,flex:2, id:item.id, name:item.name, cover:item.cover, price:item.price}}" />
+</scroll-view>

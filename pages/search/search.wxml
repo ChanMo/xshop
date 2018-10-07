@@ -1,0 +1,13 @@
+<view style="padding:20px;">
+  <view>
+    <input 
+      auto-focus="{{true}}"
+      class="input" 
+      placeholder-style="font-size:14px;" 
+      placeholder='输入关键字进行搜索' />
+  </view>
+  <view>
+    <navigator class="label" url="/pages/commodityList/commodityList">面膜</navigator>
+    <navigator class="label" url="/pages/commodityList/commodityList">面膜</navigator>
+  </view>
+</view>
