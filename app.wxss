@@ -56,7 +56,7 @@ text {
   float: right;
 }
 .text-right {
-  float: right;
+  text-align: right;
 }
 
 /** horizontal view **/

@@ -16,7 +16,7 @@
           </view>
           <view class="commodity__info">
             <text class="price"><text class="price" style="font-size:12px;">￥</text>{{item.price}}</text>
-            <text>x1</text>
+            <text>x{{item.count}}</text>
           </view>
         </view>
       </view>
@@ -32,7 +32,7 @@
     </label>
     <view>
       <text>合计:</text>
-      <text class="price">50000</text>
+      <text class="price">{{price}}</text>
       <text class="text-grey text-small">不含运费</text>
     </view>
     <view style="background:#7a3ce9;padding: 30rpx 80rpx;" bindtap="submit">

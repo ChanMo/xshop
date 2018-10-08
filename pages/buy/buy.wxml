@@ -13,15 +13,15 @@
   </view>
 
   <view class="section">
-    <view class="commodity-section">
+    <view class="commodity-section" wx:for="{{commodities}}">
       <image class="commodity-section__cover"
-        src="https://img.alicdn.com/bao/uploaded/TB1lO6XJpXXXXc_XFXXLhc5_XXX_054423.jpg_160x160.jpg"/>
+        src="{{item.cover}}"/>
       <view class="commodity-section__right">
-        <view><text style="font-size:14px;">面膜三部曲10片</text></view>
+        <view><text style="font-size:14px;">{{item.name}}</text></view>
         <view><text class="text-grey" style="font-size:12px;">容量:50ml</text></view>
         <view>
-          <text class="price"><text class="price" style="font-size:12px;">￥</text>199</text>
-          <text>x1</text>
+          <text class="price"><text class="price" style="font-size:12px;">￥</text>{{item.price}}</text>
+          <text>x{{item.count}}</text>
         </view>
       </view>
     </view>
@@ -33,9 +33,17 @@
     </view>
   </view>
 
+  <view class="section text-right">
+    <checkbox-group>
+      <label class="checkbox" style="font-size:14px;">
+        使用积分120积分抵12元  <checkbox />
+      </label>
+    </checkbox-group>
+  </view>
+
   <view class="action">
     <view style="flex-grow:1;text-align:right;padding-right:10px;">
-      <text>合计金额:</text><text class="price">199</text>
+      <text style="font-size:14px;">合计金额:  </text><text class="price" style="font-size:12px;">￥</text><text class="price">{{price}}</text>
     </view>
     <view 
       bindtap="submit"

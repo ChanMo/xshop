@@ -10,11 +10,22 @@
     </view>
   </view>
   <view class="right">
-    <navigator wx:for="{{category[active].items}}"
-      url="/pages/commodityList/commodityList?category={{item.id}}" 
-      class="right__item">
-      <image src="{{item.image}}" mode="aspectFit" />
-      <view><text style="font-size:14px;">{{item.name}}</text></view>
-    </navigator>
+    <view wx:if="{{active == 0}}">
+      <view style="display:flex;justify-content:center;">
+        <view style="padding:10px;font-size:14px;">中文</view>
+        <view style="padding:10px;font-size:14px;">英文</view>
+      </view>
+      <view>
+        <text wx:for="{{alphabet}}" style="width:30px;height:30px;line-height:30px;text-align:center;box-shadow:1px 1px 2px lightgrey;border-radius:2px;margin:0 5px 5px 0;font-size:14px;display:inline-block;">{{item}}</text>
+      </view>
+    </view>
+    <view class="right__container">
+      <navigator wx:for="{{category[active].items}}"
+        url="/pages/commodityList/commodityList?category={{item.id}}" 
+        class="right__item">
+        <image src="{{item.image}}" mode="aspectFit" />
+        <view><text style="font-size:14px;">{{item.name}}</text></view>
+      </navigator>
+    </view>
   </view>
 </view>

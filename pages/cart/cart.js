@@ -1,7 +1,8 @@
 Page({
   data: {
     cart: [],
-    checked: []
+    checked: [],
+    price: 0
   },
   onLoad: function() {
     this._fetchCart()
@@ -16,18 +17,28 @@ Page({
   },
   _fetchCart: function() {
     let data = [
-      {"id":1,"name":"测试","price":120,"image":"https://img.alicdn.com/bao/uploaded/TB1lO6XJpXXXXc_XFXXLhc5_XXX_054423.jpg_160x160.jpg","checked":false},
-      {"id":2,"name":"测试","price":120,"image":"https://img.alicdn.com/bao/uploaded/TB1lO6XJpXXXXc_XFXXLhc5_XXX_054423.jpg_160x160.jpg","checked":false}
+      {"id":1,"name":"测试","price":120,"image":"https://img.alicdn.com/bao/uploaded/TB1lO6XJpXXXXc_XFXXLhc5_XXX_054423.jpg_160x160.jpg","checked":true,"count":1},
+      {"id":2,"name":"测试","price":120,"image":"https://img.alicdn.com/bao/uploaded/TB1lO6XJpXXXXc_XFXXLhc5_XXX_054423.jpg_160x160.jpg","checked":false,"count":2}
     ]
     let checked = data.filter(item=>item.checked)
     this.setData({cart:data, checked:checked.map(item=>item.id)})
+    this._makePrice()
     console.log(this.data.checked)
+  },
+
+  /** 计算价格 **/
+  _makePrice: function() {
+    let price = 0
+    let checked = this.data.cart.filter(item => item.checked)
+    checked.map(item => price += item.price * item.count)
+    this.setData({price:price})
   },
 
   /** 更新数据库操作 **/
   _updateCart: function(checked) {
     console.log(checked)
     this.setData({checked:checked})
+    this._makePrice()
   },
 
   /** 单个商品选中 **/

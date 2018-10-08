@@ -32,10 +32,12 @@ page {
 }
 .right {
   width: 75%;
+  padding: 0 10px 10px;
+  box-sizing: border-box;
+}
+.right__container {
   display: flex;
   flex-wrap: wrap;
-  padding: 10px;
-  box-sizing: border-box;
 }
 .right__item {
   width: calc(100%/3);

@@ -1,5 +1,7 @@
 <scroll-view class="container">
-  <navigator url="/pages/article/article" class="article" wx:for="{{data}}">
+  <navigator 
+    url="/pages/article/article?id=item.id" 
+    class="article" wx:for="{{data}}">
     <view class="header">
       <text>{{item.title}}</text></view>
     <view class="image-container">

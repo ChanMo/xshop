@@ -3,6 +3,7 @@ const app = getApp()
 
 Page({
   data: {
+    alphabet: 'abcdefghijklmnopqrstuvwxyz'.split(''),
     category: null,
     active: 0
   },
