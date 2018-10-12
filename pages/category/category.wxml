@@ -9,16 +9,27 @@
       <view>{{item.name}}</view>
     </view>
   </view>
-  <view class="right">
-    <view wx:if="{{active == 0}}">
-      <view style="display:flex;justify-content:center;">
-        <view style="padding:10px;font-size:14px;">中文</view>
-        <view style="padding:10px;font-size:14px;">英文</view>
+  <view class="right" wx:if="{{active == 0}}">
+    <view>
+      <view style="display:flex;justify-content:center;margin-bottom:10px;">
+        <view bindtap="setLanguage" data-language="zh" style="padding:5px 30px;font-size:12px;border:1px solid #7840ee;{{language == 'zh' && 'background:#7840ee;color:white;'}}">中文</view>
+        <view bindtap="setLanguage" data-language="en" style="padding:5px 30px;font-size:12px;border:1px solid #7840ee;{{language == 'en' && 'background:#7840ee;color:white'}}">英文</view>
       </view>
       <view>
-        <text wx:for="{{alphabet}}" style="width:30px;height:30px;line-height:30px;text-align:center;box-shadow:1px 1px 2px lightgrey;border-radius:2px;margin:0 5px 5px 0;font-size:14px;display:inline-block;">{{item}}</text>
+        <text wx:for="{{alphabet}}" style="background:#e7e7e7;width:30px;height:30px;line-height:30px;text-align:center;border-radius:2px;margin:0 5px 5px 0;font-size:14px;display:inline-block;{{activeAlphabet == item && 'background:#7b39ea;color:white;'}}" bindtap="choiceAlphabet" data-value="{{item}}">{{item}}</text>
       </view>
     </view>
+    <view class="right__container">
+      <navigator wx:for="{{activeBrands}}"
+        url="/pages/brand/brand?id={{item.id}}" 
+        class="right__item">
+        <image src="{{item.image}}" mode="aspectFit" />
+        <view><text style="font-size:14px;">{{language == 'zh' ? item.name : item.en_name}}</text></view>
+      </navigator>
+    </view>
+  </view>
+
+  <view wx:else class="right" >
     <view class="right__container">
       <navigator wx:for="{{category[active].items}}"
         url="/pages/commodityList/commodityList?category={{item.id}}" 
