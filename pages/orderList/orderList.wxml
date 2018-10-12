@@ -1,20 +1,15 @@
 <view>
   <view class="nav">
-    <navigator 
-      url="/pages/orderList/orderList?active=unpay"
-      class="{{active == 'unpay' && 'active'}}">待付款</navigator>
-    <navigator 
-      url="/pages/orderList/orderList?active=undelivery"
-      class="{{active == 'undelivery' && 'active'}}">待发货</navigator>
-    <navigator 
-      url="/pages/orderList/orderList?active=unreceive"
-      class="{{active == 'unreceive' && 'active'}}">待收货</navigator>
-    <navigator 
-      url="/pages/orderList/orderList?active=finished"
-      class="{{active == 'finished' && 'active'}}">已收货</navigator>
-    <navigator 
-      url="/pages/orderList/orderList?active=refund"
-      class="{{active == 'refund' && 'active'}}">退款</navigator>
+    <view data-value="unpay" bindtap="setActive" 
+      class="{{active == 'unpay' && 'active'}}">待付款</view>
+    <view data-value="undelivery" bindtap="setActive" 
+      class="{{active == 'undelivery' && 'active'}}">待发货</view>
+    <view data-value="unreceive" bindtap="setActive" 
+      class="{{active == 'unreceive' && 'active'}}">待收货</view>
+    <view data-value="finished" bindtap="setActive" 
+      class="{{active == 'finished' && 'active'}}">已收货</view>
+    <view data-value="refund" bindtap="setActive"
+      class="{{active == 'refund' && 'active'}}">退款</view>
   </view>
   <scroll-view>
     <view class="order">
