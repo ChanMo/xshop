@@ -21,6 +21,7 @@
     </view>
     <view class="right__container">
       <navigator wx:for="{{activeBrands}}"
+        hover-class="none"
         url="/pages/brand/brand?id={{item.id}}" 
         class="right__item">
         <image src="{{item.image}}" mode="aspectFit" />
@@ -32,6 +33,7 @@
   <view wx:else class="right" >
     <view class="right__container">
       <navigator wx:for="{{category[active].items}}"
+        hover-class="none"
         url="/pages/commodityList/commodityList?category={{item.id}}" 
         class="right__item">
         <image src="{{item.image}}" mode="aspectFit" />

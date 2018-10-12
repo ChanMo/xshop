@@ -1,5 +1,6 @@
 <scroll-view class="container">
   <navigator 
+    hover-class="none"
     url="/pages/article/article?id=item.id" 
     class="article" wx:for="{{data}}">
     <view class="header">

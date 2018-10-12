@@ -1,6 +1,9 @@
 page {
   background: white;
 }
+.link-hover {
+  color: #7a3ce9;
+}
 .container {
   padding: 10px 20px;
   box-sizing: border-box;

@@ -11,11 +11,15 @@
     <view class="order-header">
       <text class="text-primary">我的订单</text>
       <navigator class="text-grey text-small" 
+        hover-class="none"
         url="/pages/orderList/orderList">查看全部></navigator>
     </view>
     <view class="grid">
       <block wx:for="{{order}}">
-        <navigator class="grid-item" url="/pages/orderList/orderList?active={{item.param}}">
+        <navigator 
+          hover-class="none"
+          class="grid-item" 
+          url="/pages/orderList/orderList?active={{item.param}}">
           <image src="{{item.icon}}" class="grid-icon" />
           <view>
             <text class="text-secondary grid-text"
@@ -27,7 +31,10 @@
   </view>
   <view class="delivery">
     <view style="font-size:14px;color:#7a3ce9;margin-bottom:2px">最新物流</view>
-    <navigator class="delivery__main" url="/pages/delivery/delivery">
+    <navigator 
+      hover-class="none"
+      class="delivery__main" 
+      url="/pages/delivery/delivery">
       <image src="https://img.alicdn.com/imgextra/i2/TB2Z_AouFkoBKNjSZFkXXb4tFXa_!!0-juitemmedia.jpg_270x270.jpg" />
       <view style="margin-left:10px;">
         <view class="text-primary" style="font-size:12px;">已揽件</view>
@@ -37,7 +44,10 @@
   </view>
   <view class="list">
     <block wx:for="{{link}}">
-      <navigator class="list-item" url="{{item.path}}">
+      <navigator 
+        hover-class="none"
+        class="list-item" 
+        url="{{item.path}}">
         <image src="{{item.icon}}" class="list-icon" />
         <text class="text" style="font-size:14px;">{{item.name}}</text>
       </navigator>
