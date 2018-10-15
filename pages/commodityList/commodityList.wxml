@@ -3,9 +3,15 @@
 <template is="search" />
 
 <view class="nav">
-  <text class="nav_active">综合</text>
-  <text>价格</text>
-  <text>销量</text>
+  <text 
+    data-value="default" bindtap="setSort"
+    class="{{sort == 'default' ? 'nav_active' : null}}">综合</text>
+  <text
+    data-value="price" bindtap="setSort"
+    class="{{sort == 'price' ? 'nav_active' : null}}">价格</text>
+  <text
+    data-value="sell" bindtap="setSort"
+    class="{{sort == 'sell' ? 'nav_active' : null}}">销量</text>
 </view>
 
 <scroll-view>
