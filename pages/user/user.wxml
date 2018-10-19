@@ -23,7 +23,7 @@
           <image src="{{item.icon}}" class="grid-icon" />
           <view>
             <text class="text-secondary grid-text"
-              style="font-size:14px">{{item.name}}</text>
+              style="font-size:13px">{{item.name}}</text>
           </view>
         </navigator>
       </block>

@@ -12,8 +12,24 @@ Page({
     activeBrands: [],
   },
   onLoad: function() {
-    this._fetchBrands()
-    this._fetchCategory()
+    this._fetchData()
+    //this._fetchBrands()
+    //this._fetchCategory()
+  },
+  // 获取数据
+  _fetchData: function() {
+    let self = this
+    wx.request({url: api.category, success: function(res) {
+      if(res.data.code > 0) {
+        let category = res.data.data.cate_list
+        category.unshift({'name':'品牌'})
+        self.setData({
+          brands: res.data.data.brand_list,
+          category: category
+        })
+        self._filterBrands()
+      }
+    }})
   },
   // 获取品牌数据
   _fetchBrands: function() {
@@ -59,7 +75,7 @@ Page({
       if (language == 'zh') {
         activeBrands = brands.filter(item => item.pinyin.substr(0,1).toUpperCase() == activeAlphabet)
       } else {
-        activeBrands = brands.filter(item => item.en_name.substr(0,1).toUpperCase() == activeAlphabet)
+        activeBrands = brands.filter(item => item.en.substr(0,1).toUpperCase() == activeAlphabet)
       }
     }
     this.setData({activeBrands:activeBrands})

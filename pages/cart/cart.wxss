@@ -1,6 +1,9 @@
 page {
   background: #f5f5f5;
 }
+text {
+  font-size: 14px;
+}
 .footer {
   position:fixed;
   bottom:0;
@@ -24,11 +27,14 @@ page {
   flex-grow:1
 }
 .comomdity__title {
-  font-size: 14px;
+  font-size: 13px;
 }
-.commodity__param {
+.commodity__params {
+  display: inline-block;
+  padding: 2px 5px;
   font-size: 12px;
   color: grey;
+  background: rgba(0,0,0,0.12);
 }
 .commodity__info {
 }

@@ -2,10 +2,18 @@ const api = require("../../api")
 
 Page({
   data: {
-    sort: 'default',
+    sort: 'all',
+    category: 0,
+    search: null,
     data: []
   },
-  onLoad: function() {
+  onLoad: function(options) {
+    if(options.category) {
+      this.setData({category: options.category})
+    }
+    if(options.search) {
+      this.setData({search: options.search})
+    }
     this._fetchData()
   },
   onPullDownRefresh: function() {
@@ -21,9 +29,20 @@ Page({
   // 获取数据
   _fetchData: function() {
     let self = this
-    let url = api.commodity + '?sort=' + this.data.sort
-    wx.request({url, success:function(res){
-      self.setData({data:res.data.results})
+    let url = api.commodities
+    wx.request({
+      url:url,
+      data: {
+        category_id: this.data.category,
+        sortType: this.data.sort,
+        sortPrice: 'true',
+        search: this.data.search
+      },
+      method: 'POST',
+      success:function(res){
+      if(res.data.code > 0) {
+        self.setData({data:res.data.data.data})
+      }
     }})
   }
 })

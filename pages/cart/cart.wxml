@@ -3,20 +3,22 @@
     <checkbox-group bindchange="_setChecked">
     <block wx:for="{{cart}}">
       <view class="commodity" style="">
+        <!-- 选择 -->
         <label class="checkbox" style="align-self:center">
-          <checkbox checked="{{item.checked}}" value="{{item.id}}" />
+          <checkbox checked="{{item.checked}}" 
+            value="{{item.id}}" color="#7a3ce9" />
         </label>
         <image 
-          style="width:120px;height:120px;"
+          style="width:110px;height:110px;"
           src="{{item.image}}" />
         <view class="commodity__main">
           <view style="//flex-grow:1">
             <view><text class="commodity__title">{{item.name}}</text></view>
-            <view><text class="commodity__param">容量:50ml [中国 15天] V</text></view>
+            <view class="commodity__params">容量:50ml [中国 15天] V</view>
           </view>
           <view class="commodity__info">
             <text class="price"><text class="price" style="font-size:12px;">￥</text>{{item.price}}</text>
-            <text>x{{item.count}}</text>
+            <text> x{{item.count}}</text>
           </view>
         </view>
       </view>
@@ -26,14 +28,14 @@
   <view class="footer"> 
     <label class="checkbox">
       <checkbox-group bindchange="_checkAll">
-        <checkbox value="true"
+        <checkbox value="true" color="#7a3ce9"
           checked="{{cart.length == checked.length}}" /> <text>全选</text>
       </checkbox-group>
     </label>
     <view>
-      <text>合计:</text>
-      <text class="price">{{price}}</text>
-      <text class="text-grey text-small">不含运费</text>
+      <text>合计: </text>
+      <text class="price">￥{{price}}</text>
+      <text class="text-grey" style="font-size:12px;"> (不含运费)</text>
     </view>
     <view style="background:#7a3ce9;padding: 30rpx 80rpx;" bindtap="submit">
       <text style="color:white">结算</text>

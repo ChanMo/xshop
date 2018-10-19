@@ -2,6 +2,7 @@
 
 <template is="search" />
 <view class="container">
+  <!-- 左侧一级分类 -->
   <view class="left">
     <view wx:for="{{category}}" 
       bindtap="setActive" data-index="{{index}}"
@@ -9,35 +10,41 @@
       <view>{{item.name}}</view>
     </view>
   </view>
+
   <view class="right" wx:if="{{active == 0}}">
     <view>
       <view style="display:flex;justify-content:center;margin-bottom:10px;">
         <view bindtap="setLanguage" data-language="zh" style="padding:5px 30px;font-size:12px;border:1px solid #7840ee;{{language == 'zh' && 'background:#7840ee;color:white;'}}">中文</view>
         <view bindtap="setLanguage" data-language="en" style="padding:5px 30px;font-size:12px;border:1px solid #7840ee;{{language == 'en' && 'background:#7840ee;color:white'}}">英文</view>
       </view>
+
+      <!-- 字母筛选 -->
       <view>
         <text wx:for="{{alphabet}}" style="background:#e7e7e7;width:30px;height:30px;line-height:30px;text-align:center;border-radius:2px;margin:0 5px 5px 0;font-size:14px;display:inline-block;{{activeAlphabet == item && 'background:#7b39ea;color:white;'}}" bindtap="choiceAlphabet" data-value="{{item}}">{{item}}</text>
       </view>
     </view>
+
+    <!-- 品牌列表 -->
     <view class="right__container">
       <navigator wx:for="{{activeBrands}}"
         hover-class="none"
-        url="/pages/brand/brand?id={{item.id}}" 
+        url="/pages/brand/brand?id={{item.brand_id}}" 
         class="right__item">
-        <image src="{{item.image}}" mode="aspectFit" />
-        <view><text style="font-size:14px;">{{language == 'zh' ? item.name : item.en_name}}</text></view>
+        <image src="{{item.image.file_path}}" mode="aspectFit" />
+        <view><text style="font-size:13px;">{{language == 'zh' ? item.name : item.en}}</text></view>
       </navigator>
     </view>
   </view>
 
+  <!-- 二级分类 -->
   <view wx:else class="right" >
     <view class="right__container">
-      <navigator wx:for="{{category[active].items}}"
+      <navigator wx:for="{{category[active].child}}"
         hover-class="none"
-        url="/pages/commodityList/commodityList?category={{item.id}}" 
+        url="/pages/commodityList/commodityList?category={{item.category_id}}" 
         class="right__item">
-        <image src="{{item.image}}" mode="aspectFit" />
-        <view><text style="font-size:14px;">{{item.name}}</text></view>
+        <image src="{{item.image.file_path}}" mode="aspectFit" />
+        <view><text style="font-size:13px;">{{item.name}}</text></view>
       </navigator>
     </view>
   </view>

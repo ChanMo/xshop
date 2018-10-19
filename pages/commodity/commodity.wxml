@@ -1,22 +1,24 @@
 <view>
   <scroll-view style="margin-bottom:50px;">
+    <!-- 轮播图 -->
     <swiper 
       autoplay="true"
       circular="true"
       indicator-active-color="#7a3ce9"
       indicator-dots="true"
       style="height:100vw">
-      <block wx:for="{{commodity.images}}">
+      <block wx:for="{{commodity.detail.images}}">
         <swiper-item>
-          <image src="{{item}}" style="width:100vw;height:100vw" />
+          <image src="{{item.file_path}}" style="width:100vw;height:100vw" />
         </swiper-item>
       </block>
     </swiper>
+
     <view class="container section" style="padding:20px 10px;">
-      <view><text class="text">{{commodity.name}}</text></view>
+      <view><text class="text">{{commodity.detail.goods_name}}</text></view>
       <view>
         <text class="price" style="font-size:10px;">￥</text>
-        <text class="price" style="font-size:18px;font-weight:bold;">{{commodity.price}}</text>
+        <text class="price" style="font-size:18px;font-weight:bold;">{{commodity.detail.spec[0].goods_price}}</text>
         <text class="text-grey float-right" style="font-size:14px;">快递:10.00</text>
       </view>
     </view>
@@ -54,7 +56,7 @@
     </view>
     <view class="section">
       <view style="margin-bottom:10px;"><text class="text-primary">商品详情</text></view>
-      <rich-text nodes="{{commodity.content}}"></rich-text>
+      <rich-text nodes="{{commodity.detail.content}}"></rich-text>
     </view>
   </scroll-view>
   <view class="action">

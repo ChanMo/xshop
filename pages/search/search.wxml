@@ -4,10 +4,11 @@
       auto-focus="{{true}}"
       class="input" 
       placeholder-style="font-size:14px;" 
-      placeholder='输入关键字进行搜索' />
+      placeholder='输入关键字进行搜索'
+      bindconfirm='setValue' />
   </view>
   <view>
-    <navigator class="label" url="/pages/commodityList/commodityList">面膜</navigator>
+    <navigator class="label" url="/pages/commodityList/commodityList">口红</navigator>
     <navigator class="label" url="/pages/commodityList/commodityList">面膜</navigator>
   </view>
 </view>

@@ -1,5 +1,8 @@
 page {
 }
+text {
+  font-size: 14px;
+}
 .nav {
   display: flex;
   justify-content: space-around;

@@ -18,3 +18,19 @@
   margin-bottom: 5px;
   padding: 10px;
 }
+.commodity__right {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 5px 10px;
+}
+.commodity__title {
+  font-size: 14px;
+}
+.commodity__params {
+  font-size: 12px;
+  color: grey;
+}
+.commodity__summary {
+  font-size: 14px;
+}

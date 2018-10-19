@@ -10,13 +10,25 @@ Page({
     link: [],
     hot: []
   },
+
+  // 获取轮播图数据
   _fetchBanner: function() {
-    let data = [
-      {"image":"http://doyou.oss-cn-beijing.aliyuncs.com/images/bannar.jpg"},
-    ]
-    this.setData({banner:data})
+    let self = this
+    wx.request({url:api.banner, success:function(res){
+      if(res.data.code > 0) {
+        self.setData({banner: res.data.data})
+      }
+    }})
   },
+
+  // 获取链接
   _fetchLink: function() {
+    let self = this
+    wx.request({url: api.link, success: function(res) {
+      if(res.data.code > 0) {
+        self.setData({link: res.data.data})
+      }
+    }})
     let data = [
       {"name":"爆款", "icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/home1.png"},
       {"name":"满减区", "icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/home2.png"},
@@ -29,15 +41,19 @@ Page({
       {"name":"口红", "icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/home9.png"},
       {"name":"口红", "icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/home1.png"},
     ]
-    this.setData({link:data})
+    //this.setData({link:data})
   },
+
+  // 获取推荐商品
   _fetchHot: function() {
     let self = this
-    let url = api.commodity
+    let url = api.recommand
     wx.request({url, success:function(res){
-      self.setData({hot:res.data.results})
+      self.setData({hot:res.data.data})
     }})
   },
+
+  // 首次加载
   onLoad: function () {
     this._fetchBanner()
     this._fetchLink()

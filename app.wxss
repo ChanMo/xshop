@@ -77,6 +77,7 @@ text {
   background: white;
   margin-bottom: 5px;
   padding: 10px;
+  overflow: hidden;
 }
 .commodity-section {
   display: flex;

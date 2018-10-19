@@ -28,9 +28,11 @@ Page({
   // 获取商品信息
   _fetchCommodity: function() {
     let self = this
-    let url = api.commodity + this.data.id + '/'
+    let url = api.commodity + '?goods_id=' + this.data.id
     wx.request({url, success:function(res){
-      self.setData({commodity:res.data})
+      if(res.data.code > 0) {
+        self.setData({commodity:res.data.data})
+      }
     }})
   },
   // 关闭modal

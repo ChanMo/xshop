@@ -4,18 +4,18 @@
 
 <view class="nav">
   <text 
-    data-value="default" bindtap="setSort"
-    class="{{sort == 'default' ? 'nav_active' : null}}">综合</text>
+    data-value="all" bindtap="setSort"
+    class="{{sort == 'all' ? 'nav_active' : null}}">综合</text>
   <text
     data-value="price" bindtap="setSort"
     class="{{sort == 'price' ? 'nav_active' : null}}">价格</text>
   <text
-    data-value="sell" bindtap="setSort"
-    class="{{sort == 'sell' ? 'nav_active' : null}}">销量</text>
+    data-value="sales" bindtap="setSort"
+    class="{{sort == 'sales' ? 'nav_active' : null}}">销量</text>
 </view>
 
 <scroll-view>
   <template wx:for="{{data}}" 
     is="commodity"
-    data="{{out:10,flex:2, id:item.id, name:item.name, cover:item.cover, price:item.price}}" />
+    data="{{out:10,flex:2, id:item.goods_id, name:item.goods_name, cover:item.image, price:item.goods_min_price}}" />
 </scroll-view>
