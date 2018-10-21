@@ -56,7 +56,8 @@
     </view>
     <view class="section">
       <view style="margin-bottom:10px;"><text class="text-primary">商品详情</text></view>
-      <rich-text nodes="{{commodity.detail.content}}"></rich-text>
+      <rich-text style="overflow:hidden;"
+        nodes="{{commodity.detail.content}}"></rich-text>
     </view>
   </scroll-view>
   <view class="action">

@@ -30,7 +30,7 @@
         hover-class="none"
         url="/pages/brand/brand?id={{item.brand_id}}" 
         class="right__item">
-        <image src="{{item.image.file_path}}" mode="aspectFit" />
+        <image src="{{item.image_path}}" mode="aspectFit" />
         <view><text style="font-size:13px;">{{language == 'zh' ? item.name : item.en}}</text></view>
       </navigator>
     </view>
@@ -43,7 +43,7 @@
         hover-class="none"
         url="/pages/commodityList/commodityList?category={{item.category_id}}" 
         class="right__item">
-        <image src="{{item.image.file_path}}" mode="aspectFit" />
+        <image src="{{item.image_path}}" mode="aspectFit" />
         <view><text style="font-size:13px;">{{item.name}}</text></view>
       </navigator>
     </view>
