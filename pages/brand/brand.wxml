@@ -1,8 +1,8 @@
 <import src="../../templates/commodity.wxml" />
-<image src="../../images/brandHeader.png" style="width:100%;height:30vw" />
+<image src="{{brand.banner_path}}" style="width:100%;height:30vw" />
 <view style="padding:10px 20px;">
   <view style="font-size:14px;">品牌简介:</view>
-  <text style="font-size:12px;color:grey;">MAC夏日玩出色，焦点💋，惊艳登场！潮妆精彩时刻，当季流行单品，小心机妆容升级！更多惊喜详见店内活动。</text>
+  <text style="font-size:12px;color:grey;">{{brand.content}}</text>
 </view>
 <view class="nav">
   <text class="nav_active">综合</text>
@@ -10,7 +10,7 @@
   <text>销量</text>
 </view>
 <scroll-view>
-  <template wx:for="{{data}}" 
+  <template wx:for="{{commodities}}" 
     is="commodity"
-    data="{{out:10,flex:2, id:item.id, name:item.name, cover:item.cover, price:item.price}}" />
+    data="{{out:10,flex:2, id:item.goods_id, name:item.goods_name, cover:item.image, price:item.spec[0].goods_price}}" />
 </scroll-view>
