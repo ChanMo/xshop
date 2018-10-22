@@ -7,6 +7,7 @@
     <view wx:for="{{category}}" 
       bindtap="setActive" data-index="{{index}}"
       class="left__item {{active == index && 'left__item_active'}}">
+      <image src="{{item.image_path}}" style="width:40px;height:40px;" />
       <view>{{item.name}}</view>
     </view>
   </view>
@@ -25,12 +26,14 @@
     </view>
 
     <!-- 品牌列表 -->
-    <view class="right__container">
+    <view class="right__container" style="margin-top:20px">
       <navigator wx:for="{{activeBrands}}"
         hover-class="none"
         url="/pages/brand/brand?id={{item.brand_id}}" 
         class="right__item">
-        <image src="{{item.image_path}}" mode="aspectFit" />
+        <image src="{{item.image_path}}" 
+          style="border-radius:50%"
+          mode="aspectFit" />
         <view><text style="font-size:13px;">{{language == 'zh' ? item.name : item.en}}</text></view>
       </navigator>
     </view>

@@ -6,7 +6,7 @@ page {
   display: flex;
 }
 .left {
-  width: 24%;
+  width: 28%;
   border-top: 1px solid #7a3ce9;
 }
 .left__item {
@@ -24,11 +24,10 @@ page {
   color: #3a3a3a;
 }
 .left__item_active {
-  background-color: #7a3ce9;
 }
 .left__item_active view {
   font-size: 12px;
-  color: white;
+  color: #7a3ce9;
 }
 .right {
   width: 75%;

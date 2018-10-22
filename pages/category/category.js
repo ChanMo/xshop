@@ -22,7 +22,7 @@ Page({
     wx.request({url: api.category, success: function(res) {
       if(res.data.code > 0) {
         let category = res.data.data.cate_list
-        category.unshift({'name':'品牌'})
+        category.unshift({'name':'品牌', 'image_path':'../../images/首页.png'})
         self.setData({
           brands: res.data.data.brand_list,
           category: category
