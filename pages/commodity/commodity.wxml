@@ -18,26 +18,23 @@
       <view><text class="text">{{commodity.detail.goods_name}}</text></view>
       <view>
         <text class="price" style="font-size:10px;">￥</text>
-        <text class="price" style="font-size:18px;font-weight:bold;">{{commodity.detail.spec[0].goods_price}}</text>
+        <text class="price" style="font-size:18px;font-weight:bold;">{{spec.goods_price}}</text>
         <text class="text-grey float-right" style="font-size:14px;">快递:10.00</text>
       </view>
     </view>
 
     <!-- 规格 -->
-    <view class="section">
-      <view class="option">
-        <view class="option__header">规格</view>
+    <view class="section" wx:if="{{commodity.specData}}">
+      <view class="option" wx:for="{{commodity.specData.spec_attr}}">
+        <view class="option__header">{{item.group_name}}</view>
         <view class="option__main">
-          <text class="active">50ml</text>
-          <text>100ml</text>
-          <text>150ml</text>
-        </view>
-      </view>
-      <view class="option">
-        <view class="option__header">颜色</view>
-        <view class="option__main">
-          <text class="active">红色</text>
-          <text>蓝色</text>
+          <block wx:for="{{item.spec_items}}" wx:for-item="item2" 
+            wx:for-index="index2">
+            <text wx:if="{{spec_ids[index] == item2.item_id}}"
+              class="active">{{item2.spec_value}}</text>
+            <text wx:else data-id="{{item2.item_id}}" data-group="{{index}}"
+              bindtap="setSpec">{{item2.spec_value}}</text>
+          </block>
         </view>
       </view>
     </view>
@@ -45,20 +42,24 @@
     <!-- 品牌 -->
     <view class="section">
       <navigator 
-        url="/pages/brand/brand"
+        url="/pages/brand/brand?id={{commodity.detail.brand.brand_id}}"
         style="display:flex;align-items:center;padding:0px;">
         <image 
-          src="{{commodity.brand.logo}}" 
+          src="{{commodity.detail.brand.image_path}}" 
           style="width:30px;height:30px;border-radius:15px;" />
-        <text style="margin-left:5px;">{{commodity.brand.name}}</text>
-        <text style="flex-grow:1;text-align:right;color:#a6a4a9;font-size:14px;">进入品牌  ></text>
+        <text style="margin-left:5px;font-size:14px;">{{commodity.detail.brand.name}}</text>
+        <text style="flex-grow:1;text-align:right;color:#a6a4a9;font-size:14px;">进入品牌  >></text>
       </navigator>
     </view>
+
+
+    <!-- 商品详情 -->
     <view class="section">
       <view style="margin-bottom:10px;"><text class="text-primary">商品详情</text></view>
       <rich-text style="overflow:hidden;"
         nodes="{{commodity.detail.content}}"></rich-text>
     </view>
+
   </scroll-view>
   <view class="action">
     <navigator
@@ -72,7 +73,7 @@
       <text style="margin-left:8px;font-size:14px;color:#3a3a3a">购物车</text>
     </navigator>
     <view
-      bindtap="openModal"
+      bindtap="addToCart"
       class="button" 
       style="background-color:#fe6487">加入购物车</view>
     <view
