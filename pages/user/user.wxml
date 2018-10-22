@@ -1,3 +1,13 @@
+<!-- modal -->
+<block wx:if="{{!user}}">
+  <view style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:99"></view>
+  <view style="width:70%;background:white;padding:20px;text-align:center;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);;z-index:99">
+    <view style="color:grey;margin-bottom:15px;font-size:14px;">为了提供更好的操作体验，我们需要获取您的头像昵称等基础信息</view>
+    <button type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">确定</button>
+  </view>
+</block>
+
+
 <scroll-view class="container">
   <view class="header" wx:if="{{user}}">
     <image src="{{user.avatarUrl}}" class="avatar" />
@@ -5,7 +15,6 @@
   </view>
   <view class="header" wx:else>
     <image src="http://doyou.oss-cn-beijing.aliyuncs.com/images/avatar1.jpg" class="avatar" />
-    <button open-type="getUserInfo" size="mini" bindgetuserinfo="onGotUserInfo">显示信息</button>
   </view>
   <view>
     <view class="order-header">

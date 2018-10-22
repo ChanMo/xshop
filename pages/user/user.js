@@ -36,5 +36,20 @@ Page({
       {"name":"退款","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/refund.png","param":"refund"}
     ]
     this.setData({order:data})
+  },
+  getUserInfo: function(e) {
+    if(!e.detail.userInfo) {
+      return
+    }
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({user: e.detail.userInfo})
+    // 更新用户数据
+    const url = api.sync + '?token=' + app.globalData.token
+    wx.request({
+      url: url,
+      method: 'POST',
+      data: e.detail.userInfo
+    })
   }
+
 })
