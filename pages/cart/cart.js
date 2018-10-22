@@ -1,3 +1,6 @@
+const api = require('../../api')
+const app = getApp()
+
 Page({
   data: {
     cart: [],
@@ -16,13 +19,26 @@ Page({
     }
   },
   _fetchCart: function() {
+    /**
     let data = [
       {"id":1,"name":"测试","price":120,"image":"https://img.alicdn.com/bao/uploaded/TB1lO6XJpXXXXc_XFXXLhc5_XXX_054423.jpg_160x160.jpg","checked":true,"count":1},
       {"id":2,"name":"测试","price":120,"image":"https://img.alicdn.com/bao/uploaded/TB1lO6XJpXXXXc_XFXXLhc5_XXX_054423.jpg_160x160.jpg","checked":false,"count":2}
     ]
-    let checked = data.filter(item=>item.checked)
-    this.setData({cart:data, checked:checked.map(item=>item.id)})
-    this._makePrice()
+     **/
+    let self = this
+    let url = api.cart
+    wx.request({url,
+      method: 'POST',
+      data: {token:app.globalData.token},
+      success: function(res) {
+        if(res.data.code > 0) {
+          self.setData({cart: res.data.data.goods_list})
+          //this._makePrice()
+        }
+      }
+    })
+    //let checked = data.filter(item=>item.checked)
+    //this.setData({cart:data, checked:checked.map(item=>item.id)})
     console.log(this.data.checked)
   },
 
