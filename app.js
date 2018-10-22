@@ -18,11 +18,12 @@ App({
         success: res => {
           console.log(res.code)
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          // let url = api.login
-          // wx.request({url:url, success:function(res){
-          //    let token = res.data.token
-          //    wx.setStorageSync('token', token)
-          // }})
+          let url = api.login + '?code=' + res.code
+          wx.request({url:url, success:function(res){
+            console.log(res.data)
+            //let token = res.data.token
+            //wx.setStorageSync('token', token)
+          }})
         }
       })
     }
