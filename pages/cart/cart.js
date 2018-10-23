@@ -33,7 +33,7 @@ Page({
       success: function(res) {
         if(res.data.code > 0) {
           self.setData({cart: res.data.data.goods_list})
-          //this._makePrice()
+          self._makePrice()
         }
       }
     })
@@ -71,5 +71,11 @@ Page({
       checked = this.data.cart.map(item=>item.id)
     }
     this._updateCart(checked)
+  },
+
+  // 跳转商品详情
+  goToCommodity: function(e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({url:'/pages/commodity/commodity?id='+id})
   }
 })
