@@ -13,9 +13,9 @@ Page({
   },
   _fetchPage: function() {
     let self = this
-    let url = api.page + this.data.slug + '/'
+    let url = api.page + '?code=' + this.data.slug
     wx.request({url:url, success:function(res){
-      self.setData({page:res.data})
+      self.setData({page:res.data.data})
     }})
   }
 })

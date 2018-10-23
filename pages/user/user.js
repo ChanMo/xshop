@@ -22,8 +22,8 @@ Page({
     let data = [
       {"name":"我的二维码","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/qrcode.png","path":"/pages/qrcode/qrcode"},
       {"name":"我的分销","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/user.png","path":"/pages/point/point"},
-      {"name":"积分规则","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/point.png","path":"/pages/page/page?slug=jifenguize"},
-      {"name":"买家须知","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/book.png","path":"/pages/page/page?slug=maijiaxuzhi"}
+      {"name":"积分规则","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/point.png","path":"/pages/page/page?slug=1"},
+      {"name":"买家须知","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/book.png","path":"/pages/page/page?slug=2"}
     ]
     this.setData({link:data})
   },

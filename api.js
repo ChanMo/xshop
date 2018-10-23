@@ -10,7 +10,7 @@ const api = {
   "category": domain + "category/lists",
   "commodities": domain + "goods/lists",
   "commodity": domain + "goods/detail",
-  "page": "http://maybe.findchen.com/page/",
+  "page": domain + "content/index",
   "addToCart": domain + "cart/add",
   "cart": domain + "cart/lists"
 }
