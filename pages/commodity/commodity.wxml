@@ -6,10 +6,11 @@
       circular="true"
       indicator-active-color="#7a3ce9"
       indicator-dots="true"
-      style="height:100vw">
+      style="height:{{100/1080*673}}vw">
       <block wx:for="{{commodity.detail.images}}">
         <swiper-item>
-          <image src="{{item.file_path}}" style="width:100vw;height:100vw" />
+          <image src="{{item.file_path}}" 
+            style="width:100vw;height:{{100/1080*673}}vw" />
         </swiper-item>
       </block>
     </swiper>
