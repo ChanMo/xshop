@@ -1,4 +1,4 @@
-# Maybe
+# XSHOP
 
 简单的单商家小程序商城
 
@@ -6,11 +6,10 @@
 
 1. index 首页
 2. category 商品分类页
-3. light 微淘主页
 4. cart 购物车
 5. user 用户中心
 6. search 搜索页
-7. commodityList 商品列表页
+7. list 商品列表页
 8. commodity 商品详情页
 9. brand 品牌主页
 10. buy 下单页
