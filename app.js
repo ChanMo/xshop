@@ -25,7 +25,7 @@ App({
               self.globalData.uid = res.data.data.user_id
               wx.setStorageSync('token', res.data.data.token)
             } else {
-              wx.showToast({title:'登录失败'})
+              //wx.showToast({title:'登录失败'})
             }
             //let token = res.data.token
             //wx.setStorageSync('token', token)

@@ -2,7 +2,7 @@ page {
   background: white;
 }
 .input {
-  border:1px solid #7a3ce9;
+  border:1px solid transparent;
   margin-bottom:20px;
   border-radius:16px;
   padding: 0 10px;

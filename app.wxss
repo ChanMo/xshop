@@ -17,12 +17,34 @@
 
 page {
   background: #f5f5f5;
+  font-size: 14px;
 }
 
 text {
   color: #202021;
-  font-size: 32rpx;
+  font-size: 14px;
+}
+.h1 {
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+}
+.h2 {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+}
+.h3 {
+  display: block;
   font-size: 16px;
+  font-weight: bold;
+}
+.h4 {
+  display: block;
+  font-size: 14px;
+}
+.small {
+  font-size: 12px;
 }
 .text {
   color: #202021;
@@ -32,20 +54,59 @@ text {
 .text-white {
   color: white;
 }
+
 .text-primary {
-  color: #7a3ce9;
-  font-size: 32rpx;
+  color: #ff7b03 !important;
+}
+.mb5 {
+  margin-bottom: 5px;
+}
+.mb10 {
+  margin-bottom: 10px;
+}
+.border-primary {
+  border-color: #ff7b03 !important;
+}
+.bg-primary {
+  background-color: #ff7b03 !important;
+}
+
+/**
+ * button
+ */
+.button {
+  display: inline-block;
+  border-radius: 2px;
+  padding: 5px 20px;
+  font-size: 14px;
+}
+.button-big {
+  padding: 15px 30px !important;
+}
+.button-small {
+  font-size: 12px !important;
+  padding: 2px 10px !important;
+}
+.button-primary {
+  background-color: #ff7b03 !important;
+  color: white;
+}
+
+.text-dark {
+  color: #333;
 }
 .text-secondary {
   color: #505050;
   font-size: 32rpx;
 }
 .text-grey {
-  font-weight: 200;
   color: #a6a4a9;
 }
-.text-small {
+.text-medium {
   font-size: 14px;
+}
+.text-small {
+  font-size: 12px;
 }
 .price {
   font-size: 16px;
@@ -54,6 +115,9 @@ text {
 }
 .float-right {
   float: right;
+}
+.text-center {
+  text-align: center;
 }
 .text-right {
   text-align: right;

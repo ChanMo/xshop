@@ -1,7 +1,7 @@
 <template name="commodity">
   <navigator 
     class="commodity" 
-    url="/pages/commodity/commodity?id={{id}}"
+    url="{{ virtual ? '/pages/ticket/ticket' : '/pages/commodity/commodity' }}?id={{id}}"
     style="padding:5px;background:white;width:calc((100vw - {{out*2}}px) / {{flex}});box-sizing:border-box;float:left;">
     <image 
       src="{{cover}}" 

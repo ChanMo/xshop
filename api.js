@@ -1,5 +1,4 @@
-//const domain = "http://192.168.0.109:8000/"
-const domain = "http://wx.lcpxj.com/v1/"
+const domain = "http://lyapi.lcpxj.com/v1/"
 const api = {
   "login": domain + "user/login",
   "sync": domain + "user/userInfo",

@@ -11,7 +11,8 @@
   border-bottom: 2px solid transparent;
 }
 .active {
-  border-color: #7a3ce9 !important;
+  border-color: #ff7b03 !important;
+  color: #ff7b03;
 }
 .order {
   background: white;

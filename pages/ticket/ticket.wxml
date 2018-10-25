@@ -16,11 +16,11 @@
     </swiper>
 
     <view class="container section" style="padding:20px 10px;">
-      <view><text class="text">{{commodity.detail.goods_name}}</text></view>
+      <text class="h3 mb5">{{commodity.detail.goods_name}}</text>
       <view>
         <text class="price" style="font-size:10px;">￥</text>
         <text class="price" style="font-size:18px;font-weight:bold;">{{spec.goods_price}}</text>
-        <text class="text-grey float-right" style="font-size:14px;">快递:10.00</text>
+        <text class="text-grey float-right">已售:120 剩余:10</text>
       </view>
     </view>
 
@@ -40,9 +40,36 @@
       </view>
     </view>
 
+    <!-- 购买流程 -->
+    <view class="section" style="padding-left:0;padding-right:0">
+      <text class="h4 mb5" style="padding:0 10px">购买流程</text>
+      <image src="../../images/购买流程.png"
+        style="width:100%;height:{{100*140/1115}}vw"/>
+    </view>
+
+    <!-- 商家信息 -->
+    <view class="section">
+      <text class="text-center text-primary h4">商家详情</text>
+      <view>
+        <text class="h4 mb10">{{commodity.detail.store_name}}</text>
+        <view class="mb5 small text-grey">营业时间: 上午8:30至下午5:30</view>
+        <view class="mb5 small text-grey">商家电话: {{commodity.detail.store_phone}}
+          <view class="button button-primary button-small float-right"
+            bindtap="call" 
+            data-value="{{commodity.detail.store_phone}}">拨打</view>
+        </view>
+        <view class="mb5 small text-grey">{{commodity.detail.store_address}}
+          <view class="button button-primary button-small float-right"
+            bindtap="map">导航</view>
+        </view>
+      </view>
+    </view>
+
     <!-- 商品详情 -->
     <view class="section">
-      <view style="margin-bottom:10px;"><text class="text-primary">商品详情</text></view>
+      <view class="text-center" style="margin-bottom:10px;">
+        <text class="text-primary">商品详情</text>
+      </view>
       <rich-text style="overflow:hidden;"
         nodes="{{commodity.detail.content}}"></rich-text>
     </view>
@@ -64,55 +91,8 @@
       class="button" 
       style="background-color:#fe6487">加入购物车</view>
     <view
-      bindtap="openModal"
+      bindtap="buy"
       class="button" 
       style="background-color:#02baf2">立即购买</view>
-  </view>
-</view>
-
-<!-- modal -->
-<view wx:if="{{modalVisible}}" class="modal-bg" bindtap="closeModal"></view>
-<view wx:if="{{modalVisible}}" class="modal">
-  <view style="padding:20px;box-sizing:border-box;">
-    <view style="display:flex;align-items:center;">
-      <image 
-        src="https://img.alicdn.com/bao/uploaded/TB1lO6XJpXXXXc_XFXXLhc5_XXX_054423.jpg_160x160.jpg"
-        style="width:120px;height:120px;" />
-      <view style="padding-left:10px;box-sizing:border-box">
-        <view style="font-size:14px;">面膜三部曲10片</view>
-        <view class="price">120.00</view>
-      </view>
-    </view>
-    <view>
-      <view class="option">
-        <view class="option__header">规格</view>
-        <view class="option__main">
-          <text class="active">50ml</text>
-          <text>100ml</text>
-          <text>150ml</text>
-        </view>
-      </view>
-      <view class="option">
-        <view class="option__header">颜色</view>
-        <view class="option__main">
-          <text class="active">红色</text>
-          <text>蓝色</text>
-        </view>
-      </view>
-    </view>
-    <view style="display:flex;align-items:center;justify-content:space-between">
-      <text style="font-size:14px;">数量</text>
-      <view class="count">
-        <view class="count__action">-</view>
-        <view class="count__input">1</view>
-        <view class="count__action">+</view>
-      </view>
-    </view>
-  </view>
-  <view style="display:flex;">
-    <view bindtap="addToCart"
-      style="text-align:center;width:100%;padding:15px;font-size:12px;color:white;background-color:#fe6487">加入购物车</view>
-    <view bindtap="buy"
-      style="text-align:center;width:100%;padding:15px;font-size:12px;color:white;background-color:#02baf2">立即购买</view>
   </view>
 </view>

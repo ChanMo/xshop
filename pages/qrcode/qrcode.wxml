@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" style="background-image:url('../../images/bg2.jpg')">
   <image 
     class="qrcode"
     src="http://p12.qhimg.com/dr/360_210_/t0152cccec906b7a5e0.png" />

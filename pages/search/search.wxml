@@ -2,7 +2,7 @@
   <view>
     <input 
       auto-focus="{{true}}"
-      class="input" 
+      class="input border-primary" 
       placeholder-style="font-size:14px;" 
       placeholder='输入关键字进行搜索'
       bindconfirm='setValue' />

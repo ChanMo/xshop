@@ -3,11 +3,22 @@
 const api = require('../../api')
 const app = getApp()
 
+const link = [
+  {'name':'限时抢购','image':'../../images/按钮1.png',"link":"/pages/index/index"},
+  {'name':'热门活动','image':'../../images/按钮2.png',"link":"/pages/index/index"},
+  {'name':'特色旅游','image':'../../images/按钮3.png',"link":"/pages/index/index"},
+  {'name':'立刻拼团','image':'../../images/按钮4.png',"link":"/pages/index/index"},
+  {'name':'特色产品','image':'../../images/按钮5.png',"link":"/pages/index/index"},
+  {'name':'产地直发','image':'../../images/按钮6.png',"link":"/pages/index/index"},
+  {'name':'9.9元专区','image':'../../images/按钮7.png',"link":"/pages/index/index"},
+  {'name':'会员中心','image':'../../images/按钮8.png',"link":"/pages/index/index"},
+]
+
 Page({
   data: {
     userInfo: {},
     banner: [],
-    link: [],
+    link: link,
     hot: []
   },
 
@@ -56,7 +67,7 @@ Page({
   // 首次加载
   onLoad: function () {
     this._fetchBanner()
-    this._fetchLink()
+    //this._fetchLink()
     this._fetchHot()
   },
   handleImage: function(src) {

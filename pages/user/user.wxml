@@ -10,15 +10,17 @@
 
 <scroll-view class="container">
   <view class="header" wx:if="{{user}}">
-    <image src="{{user.avatarUrl}}" class="avatar" />
+    <image src="{{user.avatarUrl}}" class="avatar border-primary" />
     <text class="text-primary">{{user.nickName}}</text>
   </view>
   <view class="header" wx:else>
-    <image src="http://doyou.oss-cn-beijing.aliyuncs.com/images/avatar1.jpg" class="avatar" />
+    <image src="http://doyou.oss-cn-beijing.aliyuncs.com/images/avatar1.jpg" class="avatar border-primary" />
   </view>
-  <view>
+
+  <!-- 订单 -->
+  <view style="margin-bottom:10px;">
     <view class="order-header">
-      <text class="text-primary">我的订单</text>
+      <text class="text-dark">我的订单</text>
       <navigator class="text-grey text-small" 
         hover-class="none"
         url="/pages/orderList/orderList">查看全部></navigator>
@@ -38,28 +40,22 @@
       </block>
     </view>
   </view>
-  <view class="delivery">
-    <view style="font-size:14px;color:#7a3ce9;margin-bottom:2px">最新物流</view>
-    <navigator 
-      hover-class="none"
-      class="delivery__main" 
-      url="/pages/delivery/delivery">
-      <image src="https://img.alicdn.com/imgextra/i2/TB2Z_AouFkoBKNjSZFkXXb4tFXa_!!0-juitemmedia.jpg_270x270.jpg" />
-      <view style="margin-left:10px;">
-        <view class="text-primary" style="font-size:12px;">已揽件</view>
-        <view class="text-grey" style="font-size:12px;">【上海市】哈哈区已收件</view>
-      </view>
-    </navigator>
-  </view>
+
+  <!-- 链接 -->
   <view class="list">
     <block wx:for="{{link}}">
-      <navigator 
+      <view
         hover-class="none"
         class="list-item" 
-        url="{{item.path}}">
+        ontap="{{item.tap}}"
+        data-value="{{item.value}}">
         <image src="{{item.icon}}" class="list-icon" />
         <text class="text" style="font-size:14px;">{{item.name}}</text>
-      </navigator>
+        <view wx:if="{{item.right}}" style="flex-grow:1;text-align:right;">
+          <text class="text-grey text-medium">{{item.right}}</text>
+        </view>
+      </view>
     </block>
   </view>
+
 </scroll-view>

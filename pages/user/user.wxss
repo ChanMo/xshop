@@ -2,7 +2,7 @@ page {
   background: white;
 }
 .link-hover {
-  color: #7a3ce9;
+  color: #ff7b03;
 }
 .container {
   padding: 10px 20px;
@@ -17,7 +17,7 @@ page {
   width:140rpx;
   height:140rpx;
   border-radius:70rpx;
-  border:1rpx solid #7a3ce9;
+  border:1rpx solid #ff7b03;
   margin-right: 20rpx;
 }
 .order-header {
@@ -32,9 +32,8 @@ page {
   margin-bottom: 15px;
 }
 .grid-icon {
-  width: 70rpx;
-  height: 70rpx;
-  margin-bottom: -10rpx;
+  width: 28px;
+  height: 28px;
 }
 .grid-item {
   text-align: center;
@@ -58,7 +57,7 @@ page {
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 .delivery {
-  border: 1px solid #7a3ce9;
+  border: 1px solid #ff7b03;
   border-radius: 10px;
   padding: 5px 15px;
   box-sizing: border-box;

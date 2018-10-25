@@ -18,12 +18,14 @@
     "pages/qrcode/qrcode",
     "pages/buy/buy",
     "pages/point/point",
-    "pages/delivery/delivery"
+    "pages/delivery/delivery",
+    "pages/us/us",
+    "pages/ticket/ticket"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#7a3ce9",
-    "navigationBarTitleText": "MayBe",
+    "navigationBarBackgroundColor": "#ff7b03",
+    "navigationBarTitleText": "特色抢购",
     "navigationBarTextStyle":"light"
   },
   "tabBar": {
@@ -33,15 +35,10 @@
           "iconPath": "./images/首页.png",
           "selectedIconPath": "./images/首页.png"
       }, {
-          "pagePath": "pages/category/category",
-          "text": "分类",
-          "iconPath": "./images/分类.png",
-          "selectedIconPath": "./images/分类.png"
-      }, {
-          "pagePath": "pages/light/light",
-          "text": "微淘",
-          "iconPath": "./images/微淘.png",
-          "selectedIconPath": "./images/微淘.png"
+          "pagePath": "pages/us/us",
+          "text": "关于我们",
+          "iconPath": "./images/关于我们.png",
+          "selectedIconPath": "./images/关于我们.png"
       }, {
           "pagePath": "pages/cart/cart",
           "text": "购物车",
@@ -53,6 +50,7 @@
           "iconPath": "./images/我的.png",
           "selectedIconPath": "./images/我的.png"
       }],
-      "selectedColor": "#7a3ce9"
+      "color": "#ff7b03",
+      "selectedColor": "#ff7b03"
   }
 }

@@ -1,0 +1,6 @@
+/* pages/us/us.wxss */
+page {
+  background: white;
+  padding: 15px;
+  box-sizing: border-box;
+}

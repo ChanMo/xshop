@@ -5,17 +5,17 @@
 <view class="nav">
   <text 
     data-value="all" bindtap="setSort"
-    class="{{sort == 'all' ? 'nav_active' : null}}">综合</text>
+    class="{{sort == 'all' ? 'text-primary' : null}}">综合</text>
   <text
     data-value="price" bindtap="setSort"
-    class="{{sort == 'price' ? 'nav_active' : null}}">价格</text>
+    class="{{sort == 'price' ? 'text-primary' : null}}">价格</text>
   <text
     data-value="sales" bindtap="setSort"
-    class="{{sort == 'sales' ? 'nav_active' : null}}">销量</text>
+    class="{{sort == 'sales' ? 'text-primary' : null}}">销量</text>
 </view>
 
 <scroll-view>
   <template wx:for="{{data}}" 
     is="commodity"
-    data="{{out:10,flex:2, id:item.goods_id, name:item.goods_name, cover:item.image, price:item.goods_min_price}}" />
+    data="{{out:10,flex:2, id:item.goods_id, name:item.goods_name, cover:item.image, price:item.goods_min_price,virtual:item.is_virtual}}" />
 </scroll-view>

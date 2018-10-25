@@ -1,0 +1,3 @@
+<scroll-view>
+  <rich-text nodes="{{page.content}}"></rich-text>
+</scroll-view>
