@@ -2,10 +2,10 @@
   <view class="section" bindtap="chooseAddress">
     <view wx:if="{{address}}">
       <view>
-        <text style="font-size:14px;">收货人: {{address.userName}}</text>
-        <text class="text-right" style="font-size:14px;">{{address.telNumber}}</text>
+        <text>收货人: {{address.userName}}</text>
+        <text class="float-right">{{address.telNumber}}</text>
       </view>
-      <view><text style="font-size:14px;color:grey;">收货地址: {{address.provinceName + address.cityName + address.countyName + address.detailInfo}}</text></view>
+      <text class="text-grey small">收货地址: {{address.provinceName + address.cityName + address.countyName + address.detailInfo}}</text>
     </view>
     <view wx:else>
       <text>选择收货地址</text>
@@ -13,23 +13,24 @@
   </view>
 
   <view class="section">
-    <view class="commodity-section" wx:for="{{commodities}}">
-      <image class="commodity-section__cover"
-        src="{{item.cover}}"/>
+    <view class="commodity-section" wx:for="{{data.goods_list}}">
+      <image style="width:80px;height:80px;"
+        src="{{item.image}}"/>
       <view class="commodity-section__right">
-        <view><text style="font-size:14px;">{{item.name}}</text></view>
-        <view><text class="text-grey" style="font-size:12px;">容量:50ml</text></view>
+        <view><text>{{item.goods_name}}</text></view>
+        <view><text class="text-grey small">容量:50ml</text></view>
         <view>
-          <text class="price"><text class="price" style="font-size:12px;">￥</text>{{item.price}}</text>
-          <text>x{{item.count}}</text>
+          <text class="price">
+            <text class="price small">￥</text>{{item.goods_price}}</text>
+          <text>x{{item.total_num}}</text>
         </view>
       </view>
     </view>
-    <view><text style="font-size:14px;color:grey;">快递: 10.00</text></view>
-    <view><text style="font-size:14px;color:grey;">可用积分200抵扣2.00元</text></view>
-    <view><text style="font-size:14px;color:grey;">参与活动: 满180元送后水20ml或后乳液20xml</text></view>
+    <view><text style="font-size:14px;color:grey;">快递: {{data.express_price}}</text></view>
+    <!--view><text style="font-size:14px;color:grey;">可用积分200抵扣2.00元</text></view-->
+    <!--view><text style="font-size:14px;color:grey;">参与活动: 满180元送后水20ml或后乳液20xml</text></view-->
     <view style="text-align:right;">
-      <text class="text-small">共1件商品，小记<text clsss="price">199</text></text>
+      <text class="text-small">共{{data.order_total_num}}件商品，小记<text clsss="price">{{data.order_total_price}}</text></text>
     </view>
   </view>
 
@@ -43,8 +44,13 @@
 
   <view class="action">
     <view style="flex-grow:1;text-align:right;padding-right:10px;">
-      <text style="font-size:14px;">合计金额:  </text><text class="price" style="font-size:12px;">￥</text><text class="price">{{price}}</text>
+      <text style="font-size:14px;">合计金额:  </text><text class="price" style="font-size:12px;">￥</text><text class="price">{{data.order_pay_price}}</text>
     </view>
-    <view class="button button-big button-primary" bindtap="submit">提交订单</view>
+    <view 
+      bindtap="submit"
+      class="bg-primary"
+      style="height:56px;line-height:56px;width:120px;text-align:center;">
+      <text class="text-white">提交订单</text>
+    </view>
   </view>
 </view>

@@ -96,6 +96,12 @@ text {
   padding: 5px 20px;
   font-size: 14px;
 }
+.button-block {
+  display: block;
+  text-align: center;
+  padding: 10px 15px !important;
+  margin: 0 10px 10px;
+}
 .button-big {
   padding: 15px 30px !important;
 }

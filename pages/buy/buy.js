@@ -4,18 +4,42 @@ const app = getApp()
 Page({
   data: {
     address: null,
-    commodities: [],
-    price: 0
+    data: null,
+    price: 0,
+    commodity: 0,
+    count: 0,
+    sku: null
   },
-  onLoad: function() {
-    this._fetchCommodities()
+  onLoad: function(options) {
+    if(options['commodity']) {
+      this.setData({
+        from: 'goods',
+        commodity: options['commodity'],
+        count: options['count'],
+        sku: options['sku']
+      })
+    } else {
+      this.setData({from:'cart'})
+    }
+    this._fetchData()
   },
-  _fetchCommodities: function() {
-    let data = [
-      {'name':'面膜三部曲10片','price':120.00,'count':1,'cover':'https://img.alicdn.com/bao/uploaded/TB1lO6XJpXXXXc_XFXXLhc5_XXX_054423.jpg_160x160.jpg'}
-    ]
-    this.setData({commodities:data})
-    this._makePrice()
+  _fetchData: function() {
+    let url = api.buy
+    let data = {
+      token: app.globalData.token,
+      act: 'confirm',
+      from: this.data.from
+    }
+    if(this.data.from == 'goods') {
+      data['goods_id'] = this.data.commodity
+      data['goods_sku_id'] = this.data.sku
+      data['goods_num'] = this.data.count
+    }
+    wx.request({
+      url:url,
+      method:'post',
+      data: data,
+      success:res=>this.setData({data:res.data.data})})
   },
 
   /** 计算价格 **/
@@ -45,6 +69,30 @@ Page({
   submit: function() {
     if(!this.data.address) {
       wx.showToast({mask:true,title:'请选择收货地址',icon:'error'})
+      return
     }
+    let self = this
+    let url = api.buy
+    let data = {
+      token: app.globalData.token,
+      act: 'submit',
+      from: this.data.from
+    }
+    if(this.data.from == 'goods') {
+      data['goods_id'] = this.data.commodity
+      data['goods_sku_id'] = this.data.sku
+      data['goods_num'] = this.data.count
+    }
+    wx.request({
+      url: url,
+      method: 'POST',
+      data: data,
+      success: function(res) {
+        wx.navigateTo({url:'/pages/pay/pay?amount=120.00&order=1'})
+      },
+      fail: function(error) {
+        wx.shotToast({title:'服务器错误'})
+      }
+    })
   }
 })

@@ -64,7 +64,7 @@
       class="button" 
       style="background-color:#fe6487">加入购物车</view>
     <view
-      bindtap="openModal"
+      bindtap="buy"
       class="button" 
       style="background-color:#02baf2">立即购买</view>
   </view>
