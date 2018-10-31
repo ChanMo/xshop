@@ -64,11 +64,27 @@ text {
 .mb10 {
   margin-bottom: 10px;
 }
+.mt10 {
+  margin-top: 10px;
+}
+.mr10 {
+  margin-right: 10px;
+}
+.p10 {
+  padding: 10px;
+}
+.pv20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 .border-primary {
   border-color: #ff7b03 !important;
 }
 .bg-primary {
   background-color: #ff7b03 !important;
+}
+.bg-white {
+  background-color: white;
 }
 
 /**
@@ -125,6 +141,7 @@ text {
 
 /** horizontal view **/
 .row {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
 }
@@ -155,4 +172,10 @@ text {
 .commodity-section__right {
   flex-grow: 1;
   padding-left: 10px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
 }

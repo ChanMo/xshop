@@ -1,31 +1,39 @@
 <scroll-view>
   <view class="address-container">
     <view>
-      <text>陈某某</text>
-      <text style="color:grey">15550001234</text>
+      <text>{{order.address.name}}</text>
+      <text style="color:grey">{{order.address.phone}}</text>
     </view>
     <view>
-      <text>山东省济南市高新区会展西路88号</text>
+      <text>{{order.address.province + order.address.city + order.address.detail}}</text>
     </view>
   </view>
   <view class="commodity-container">
-    <navigator 
+    <navigator wx:for="{{order.goods}}"
       style="display:flex;padding:10px;"
-      url="/pages/commodity/commodity?id=1">
+      url="/pages/commodity/commodity?id={{item.goods_id}}">
       <image 
-        src="https://img.alicdn.com/bao/uploaded/TB1GcCfHXXXXXbQaXXXd0E9FFXX_095524.jpg_160x160.jpg"
+        src="{{item.image.file_path}}"
         style="width:120px;height:120px;" />
       <view style="flex-grow:1;padding-left:10px;">
-        <view style="font-size:14px;">包邮韩国VDL贝壳提亮液 细</view>
-        <view class="text-small text-grey">x1</view>
-        <view class="price">120.00</view>
+        <view style="font-size:14px;">{{item.goods_name}}</view>
+        <view class="small text-grey">{{item.goods_attr}}</view>
+        <view class="text-small text-grey">x{{item.total_num}}</view>
+        <view class="price">{{item.total_price}}</view>
       </view>
     </navigator>
   </view>
   <view class="section">
-    <view>运费: 0</view>
-    <view>订单金额: 120.00</view>
-    <view>订单编号: 12030030301</view>
-    <view>创建时间: 2018/09/10</view>
+    <view>运费: {{order.express_price}}</view>
+    <view>总金额: {{order.total_price}}</view>
+    <view>支付金额: {{order.pay_price}}</view>
+    <view>订单编号: {{order.order_no}}</view>
+    <view>创建时间: {{order.create_time}}</view>
+  </view>
+
+  <view style="padding:20px;">
+    <navigator wx:if="{{order.pay_status.value == 10}}" 
+      class="button button-block button-primary"
+      url="/pages/pay/pay?amount={{order.pay_price}}&order={{id}}">支付</navigator>
   </view>
 </scroll-view>

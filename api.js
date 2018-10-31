@@ -11,6 +11,11 @@ const api = {
   "commodity": domain + "goods/detail",
   "page": domain + "content/index",
   "addToCart": domain + "cart/add",
-  "cart": domain + "cart/lists"
+  "cart": domain + "cart/lists",
+  "buy": domain + "order/cart",
+  "pay": domain + "user.order/pay",
+  "qrcode": domain + "user/QrCode",
+  "orderList": domain + "user.order/lists",
+  "order": domain + "user.order/detail"
 }
 module.exports = api

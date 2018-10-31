@@ -1,0 +1,23 @@
+<scroll-view>
+  <view class="row p10 bg-white mb10 mt10">
+    <image src="http://imgtu.5011.net/uploads/content/20170714/2394201500023363.jpg" class="avatar mr10" />
+    <view>
+      <h4>May <text class="text-primary">[推广员]</text></h4>
+      <view>加入时间: 2018-10-10 10:10</view>
+    </view>
+  </view>
+
+  <view class="bg-primary text-center mb10 pv20">
+    <view class="text-white small">累计佣金（元）</view>
+    <view class="h1 text-white mb10 mt10">500</view>
+    <navigator class="text-white small" 
+      url="/pages/index/index">提现</navigator>
+  </view>
+
+  <view class="grid">
+    <view class="column" wx:for="{{link}}" wx:key="{{index}}">
+      <view>{{item.name}}</view>
+      <view wx:if="{{item.sub}}" class="text-primary">{{item.sub}}</view>
+    </view>
+  </view>
+</scroll-view>

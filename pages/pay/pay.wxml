@@ -1,0 +1,5 @@
+<view class="container">
+  <view class="text-center h1">{{amount}}</view>
+  <view bindtap="pay"
+    class="button button-primary button-block">支付</view>
+</view>

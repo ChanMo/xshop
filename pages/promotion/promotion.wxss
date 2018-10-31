@@ -1,0 +1,14 @@
+/* pages/promotion/promotion.wxss */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.column {
+  width: calc(100%/3 - 2px/3);
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  background: white;
+  margin-bottom: 1px;
+}

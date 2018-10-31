@@ -3,16 +3,15 @@ const app = getApp()
 
 const link = [
   {"name":"我的二维码","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/qrcode.png","tap":"goTo","value":"/pages/qrcode/qrcode"},
-  //{"name":"推广中心","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/point.png","tap":"goTo","value":"/pages/point/point"},
-  {"name":"推广中心","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/point.png","tap":"goTo","value":"/pages/index/index"},
+  {"name":"推广中心","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/point.png","tap":"goTo","value":"/pages/promotion/promotion"},
   {"name":"买家须知","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/book.png","tap":"goTo","value":"/pages/page/page?slug=2"},
   {"name":"客服电话","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/user.png","tap":"call","value":"18498985793","right":"18498985793"}
 ]
 
 const order = [
-  {"name":"待付款","icon":"../../images/gr1.png","param":"unpay"},
-  {"name":"待发货","icon":"../../images/gr2.png","param":"undelivery"},
-  {"name":"待收货","icon":"../../images/gr3.png","param":"unreceive"},
+  {"name":"待付款","icon":"../../images/gr1.png","param":"payment"},
+  {"name":"待发货","icon":"../../images/gr2.png","param":"delivery"},
+  {"name":"待收货","icon":"../../images/gr3.png","param":"received"},
   {"name":"已收货","icon":"../../images/gr4.png","param":"finished"},
   {"name":"退款","icon":"../../images/gr5.png","param":"refund"}
 ]

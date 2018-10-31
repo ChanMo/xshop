@@ -13,7 +13,7 @@ page {
   margin-bottom: 10px;
 }
 .section {
-  padding: 0 15px
+  padding: 0 25px
 }
 .section view {
   font-size: 14px;

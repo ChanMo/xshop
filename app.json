@@ -17,10 +17,12 @@
     "pages/orderList/orderList",
     "pages/qrcode/qrcode",
     "pages/buy/buy",
+    "pages/pay/pay",
     "pages/point/point",
     "pages/delivery/delivery",
     "pages/us/us",
-    "pages/ticket/ticket"
+    "pages/ticket/ticket",
+    "pages/promotion/promotion"
   ],
   "window":{
     "backgroundTextStyle":"light",
