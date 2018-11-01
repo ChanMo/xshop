@@ -28,7 +28,8 @@ Page({
     let data = {
       token: app.globalData.token,
       act: 'confirm',
-      from: this.data.from
+      from: this.data.from,
+      //address: this.data.address
     }
     if(this.data.from == 'goods') {
       data['goods_id'] = this.data.commodity
@@ -76,7 +77,8 @@ Page({
     let data = {
       token: app.globalData.token,
       act: 'submit',
-      from: this.data.from
+      from: this.data.from,
+      address: this.data.address
     }
     if(this.data.from == 'goods') {
       data['goods_id'] = this.data.commodity
