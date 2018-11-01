@@ -15,9 +15,13 @@
   </view>
 
   <view class="grid">
-    <view class="column" wx:for="{{link}}" wx:key="{{index}}">
+    <view class="column" wx:for="{{link}}" wx:key="{{index}}" 
+      data-value="{{item.path}}" bindtap="onPress">
+      <image src="{{item.icon}}"
+        class="mb5"
+        style="width:36px;height:36px;" />
       <view>{{item.name}}</view>
-      <view wx:if="{{item.sub}}" class="text-primary">{{item.sub}}</view>
+      <view wx:if="{{item.sub}}" class="text-primary small">{{item.sub}}</view>
     </view>
   </view>
 </scroll-view>
