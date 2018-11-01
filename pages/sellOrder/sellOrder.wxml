@@ -1,0 +1,13 @@
+<scroll-view>
+  <view wx:for="{{data}}" wx:key="{{index}}" class="p15 mb1 bg-white row">
+    <image src="{{item.image}}" class="mr10" style="width:48px;height:48px;border:1px solid #E0E0E0" />
+    <view style="flex-grow:1">
+      <view class="h5">{{item.title}}</view>
+      <view class="text-grey small">{{item.desc}}</view>
+      <view>
+        <text class="text-price small">{{item.amount}}</text>
+        <text class="float-right text-price small">x{{item.count}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
