@@ -26,7 +26,7 @@
       <navigator 
         style="width:25%;text-align:center;padding:10px 0;"
         url="{{item.link}}">
-        <image src="{{item.image}}" 
+        <image src="{{item.image_path}}" 
           style="width:56px;height:56px;" />
         <view style="color:#333;font-size:13px;font-weight:bold">
           {{item.name}}
