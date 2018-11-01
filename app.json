@@ -22,7 +22,10 @@
     "pages/delivery/delivery",
     "pages/us/us",
     "pages/ticket/ticket",
-    "pages/promotion/promotion"
+    "pages/promotion/promotion",
+    "pages/walletLog/walletLog",
+    "pages/team/team",
+    "pages/sellOrder/sellOrder"
   ],
   "window":{
     "backgroundTextStyle":"light",
