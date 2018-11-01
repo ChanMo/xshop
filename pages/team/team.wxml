@@ -1,0 +1,15 @@
+<view style="border-bottom:1px solid lightgrey;" class="border-primary row p15 mb10">
+  <text class="col3 text-center">团队</text>
+  <text class="col3 text-center">下线人数</text>
+  <text class="col3 text-center">推广时间</text>
+</view>
+<scroll-view>
+  <view wx:for="{{data}}" wx:key="{{index}}" class="row pv10 ph20 mb10">
+    <view class="row col3">
+      <image src="{{item.avatar}}" class="avatar avatar-small mr10" />
+      <text>{{item.username}}</text>
+    </view>
+    <text class="text-center col3">{{item.count}}</text>
+    <text class="text-right col3 text-grey small">{{item.datetime}}</text>
+  </view>
+</scroll-view>
