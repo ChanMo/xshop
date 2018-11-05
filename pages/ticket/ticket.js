@@ -29,6 +29,6 @@ Page({
     wx.makePhoneCall({phoneNumber:mobile})
   },
   buy: function() {
-    wx.navigateTo({url:'/pages/buy/buy'})
+    wx.navigateTo({url:'/pages/buy/buy?commodity='+this.data.id+'&count=1&sku='+this.data.spec.spec_sku_id+'&is_virtual=1'})
   }
 })
