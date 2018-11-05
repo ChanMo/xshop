@@ -27,7 +27,7 @@ Page({
           wx.navigateBack({delta:1})
         },
         fail: error=>{
-          wx.showToast({title:error.errMsg})
+          //wx.showToast({title:error.errMsg})
           console.log(error)
         }
       })
