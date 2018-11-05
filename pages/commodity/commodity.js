@@ -3,6 +3,7 @@ const app = getApp()
 Page({
   data: {
     id: 0,
+    is_virtual: 0,
     modalVisible: false,
     modalAnimation: null,
     commodity: {},
@@ -78,6 +79,7 @@ Page({
     wx.request({url, success:function(res){
       if(res.data.code > 0) {
         self.setData({
+          is_virtual: res.data.data.detail.is_virtual,
           commodity: res.data.data,
           spec: res.data.data.detail.spec[0],
           spec_ids: res.data.data.detail.spec[0].spec_sku_id.split('_')
@@ -94,6 +96,6 @@ Page({
     this.setData({modalVisible:true})
   },
   buy: function() {
-    wx.navigateTo({url:'/pages/buy/buy?commodity='+this.data.id+'&count=1&sku='+this.data.spec.spec_sku_id})
+    wx.navigateTo({url:'/pages/buy/buy?commodity='+this.data.id+'&count=1&sku='+this.data.spec.spec_sku_id+'&is_virtual='+this.data.is_virtual})
   }
 })

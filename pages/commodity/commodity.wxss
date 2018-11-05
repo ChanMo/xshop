@@ -76,3 +76,9 @@ page {
   border-right: 1px solid lightgrey;
   font-size: 14px;
 }
+.button {
+  margin: 8px 15px 8px 0;
+  font-size: 12px;
+  padding: 5px 15px;
+  border-radius: 3px;
+}
