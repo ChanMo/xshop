@@ -77,5 +77,35 @@ Page({
   goToCommodity: function(e) {
     let id = e.currentTarget.dataset.id
     wx.navigateTo({url:'/pages/commodity/commodity?id='+id})
+  },
+
+  // 删除按钮
+  onDelete: function(e) {
+    let self = this
+    let goods_id = e.currentTarget.dataset.id
+    let goods_sku_id = e.currentTarget.dataset.sku
+    wx.showModal({title:'提醒',content:'确认删除此商品?',success:res=>{
+      if(res.confirm) {
+        wx.showLoading({title:'请稍等'})
+        wx.request({
+          url: api.deleteFromCart,
+          method: 'POST',
+          data: {
+            token: app.globalData.token,
+            goods_id: goods_id,
+            goods_sku_id: goods_sku_id
+          },
+          success: res => {
+            self._fetchCart()
+          },
+          fail: error => {
+            wx.showToast({title:'删除失败'})
+          },
+          complete: () => {
+            wx.hideLoading()
+          }
+        })
+      }
+    }})
   }
 })
