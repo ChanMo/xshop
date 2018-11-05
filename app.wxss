@@ -109,6 +109,20 @@ text {
 }
 
 /**
+ * form
+ */
+input {
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  height: auto;
+}
+.form-label {
+  margin-bottom: 5px;
+}
+
+/**
  * button
  */
 .button {
@@ -195,8 +209,9 @@ text {
   padding: 10px;
 }
 .commodity-section__cover {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  min-width: 100px;
+  height: 100px;
 }
 .commodity-section__right {
   flex-grow: 1;
