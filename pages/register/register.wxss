@@ -1,0 +1,9 @@
+page {
+  background: white;
+  padding-top: 20px;
+}
+.form-section {
+  padding: 5px 20px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}

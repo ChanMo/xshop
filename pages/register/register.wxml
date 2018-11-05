@@ -1,0 +1,13 @@
+<form bindsubmit="onSubmit" report-submit="{{true}}">
+  <view class="form-section">
+    <view class="form-label">姓名</view>
+    <input name="name" placeholder="请输入您的姓名" />
+  </view>
+  <view class="form-section">
+    <view class="form-label">联系电话</view>
+    <input name="mobile" type="number" placeholder="联系电话" />
+  </view>
+  <view class="form-section mt20">
+    <button formType="submit" class="button button-primary button-block button-small">申请</button>
+  </view>
+</form>
