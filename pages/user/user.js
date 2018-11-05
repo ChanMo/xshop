@@ -2,8 +2,8 @@ const api = require('../../api')
 const app = getApp()
 
 const link = [
-  {"name":"我的二维码","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/qrcode.png","tap":"goTo","value":"/pages/qrcode/qrcode"},
-  {"name":"推广中心","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/point.png","tap":"goTo","value":"/pages/promotion/promotion"},
+  //{"name":"我的二维码","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/qrcode.png","tap":"goTo","value":"/pages/qrcode/qrcode"},
+  {"name":"推广中心","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/point.png","tap":"goTo","value":"/pages/register/register"},
   {"name":"买家须知","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/book.png","tap":"goTo","value":"/pages/page/page?slug=2"},
   {"name":"客服电话","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/user.png","tap":"call","value":"18498985793","right":"18498985793"}
 ]
@@ -24,7 +24,6 @@ Page({
   },
   onLoad: function() {
     this.setData({user:app.globalData.userInfo})
-    this._setOrder()
   },
   onGotUserInfo: function(res) {
     let userInfo = res.detail.userInfo
