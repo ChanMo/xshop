@@ -1,5 +1,5 @@
 <scroll-view>
-  <view class="address-container">
+  <view class="address-container" wx:if="{{!order.virtual}}">
     <view>
       <text>{{order.address.name}}</text>
       <text style="color:grey">{{order.address.phone}}</text>
