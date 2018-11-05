@@ -8,15 +8,18 @@ Page({
     price: 0,
     commodity: 0,
     count: 0,
-    sku: null
+    sku: null,
+    is_virtual: 0
   },
   onLoad: function(options) {
+    console.log(options)
     if(options['commodity']) {
       this.setData({
         from: 'goods',
         commodity: options['commodity'],
         count: options['count'],
-        sku: options['sku']
+        sku: options['sku'],
+        is_virtual: options['is_virtual'] ? parseInt(options['is_virtual']) : 0
       })
     } else {
       this.setData({from:'cart'})
@@ -68,7 +71,7 @@ Page({
     }})
   },
   submit: function() {
-    if(!this.data.address) {
+    if(!this.data.address && this.data.is_virtual == 0) {
       wx.showToast({mask:true,title:'请选择收货地址',icon:'error'})
       return
     }
@@ -90,7 +93,12 @@ Page({
       method: 'POST',
       data: data,
       success: function(res) {
-        wx.navigateTo({url:'/pages/pay/pay?amount=120.00&order=1'})
+        console.log(res)
+        if(res.data.code == 1) {
+          wx.navigateTo({url:'/pages/pay/pay?amount='+res.data.data.order_amount+'&order='+res.data.data.order_id})
+        } else {
+          wx.shotToast({title:res.data.msg})
+        }
       },
       fail: function(error) {
         wx.shotToast({title:'服务器错误'})

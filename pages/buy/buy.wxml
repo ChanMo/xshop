@@ -1,5 +1,5 @@
 <view>
-  <view class="section" bindtap="chooseAddress">
+  <view wx:if="{{!is_virtual}}" class="section" bindtap="chooseAddress">
     <view wx:if="{{address}}">
       <view>
         <text>收货人: {{address.userName}}</text>
@@ -18,7 +18,7 @@
         src="{{item.image}}"/>
       <view class="commodity-section__right">
         <view><text>{{item.goods_name}}</text></view>
-        <view><text class="text-grey small">容量:50ml</text></view>
+        <view><text class="text-grey small">{{item.goods_sku.goods_attr}}</text></view>
         <view>
           <text class="price">
             <text class="price small">￥</text>{{item.goods_price}}</text>
@@ -32,14 +32,6 @@
     <view style="text-align:right;">
       <text class="text-small">共{{data.order_total_num}}件商品，小记<text clsss="price">{{data.order_total_price}}</text></text>
     </view>
-  </view>
-
-  <view class="section text-right">
-    <checkbox-group>
-      <label class="checkbox" style="font-size:14px;">
-        使用积分120积分抵12元  <checkbox />
-      </label>
-    </checkbox-group>
   </view>
 
   <view class="action">
