@@ -25,7 +25,8 @@
     "pages/promotion/promotion",
     "pages/walletLog/walletLog",
     "pages/team/team",
-    "pages/sellOrder/sellOrder"
+    "pages/sellOrder/sellOrder",
+    "pages/register/register"
   ],
   "window":{
     "backgroundTextStyle":"light",
