@@ -12,6 +12,7 @@ const api = {
   "page": domain + "content/index",
   "addToCart": domain + "cart/add",
   "cart": domain + "cart/lists",
+  "deleteFromCart": domain + "cart/delete",
   "buy": domain + "order/cart",
   "pay": domain + "user.order/pay",
   "qrcode": domain + "user/QrCode",
