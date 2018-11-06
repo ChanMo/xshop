@@ -7,7 +7,7 @@
       indicator-active-color="#ff7b03"
       indicator-dots="true"
       style="height:{{100/1080*673}}vw">
-      <block wx:for="{{commodity.detail.images}}">
+      <block wx:for="{{commodity.detail.images}}" wx:key="{{index}}">
         <swiper-item>
           <image src="{{item.file_path}}" 
             style="width:100vw;height:{{100/1080*673}}vw" />
@@ -26,11 +26,12 @@
 
     <!-- 规格 -->
     <view class="section" wx:if="{{commodity.specData}}">
-      <view class="option" wx:for="{{commodity.specData.spec_attr}}">
+      <view class="option" wx:for="{{commodity.specData.spec_attr}}" 
+        wx:key="{{index}}">
         <view class="option__header">{{item.group_name}}</view>
         <view class="option__main">
           <block wx:for="{{item.spec_items}}" wx:for-item="item2" 
-            wx:for-index="index2">
+            wx:for-index="index2" wx:key="{{key2}}">
             <text wx:if="{{spec_ids[index] == item2.item_id}}"
               class="active">{{item2.spec_value}}</text>
             <text wx:else data-id="{{item2.item_id}}" data-group="{{index}}"
@@ -60,7 +61,7 @@
         </view>
         <view class="mb5 small text-grey">{{commodity.detail.store_address}}
           <view class="button button-primary button-small float-right"
-            bindtap="map">导航</view>
+            bindtap="onMapClick">导航</view>
         </view>
       </view>
     </view>
