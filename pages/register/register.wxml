@@ -8,6 +8,6 @@
     <input name="mobile" type="number" placeholder="联系电话" />
   </view>
   <view class="form-section mt20">
-    <button formType="submit" class="button button-primary button-block button-small">申请</button>
+    <button formType="submit" class="button button-primary button-block button-small">申请为推广员</button>
   </view>
 </form>
