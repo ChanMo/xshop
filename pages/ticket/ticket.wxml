@@ -20,7 +20,6 @@
       <view>
         <text class="price" style="font-size:10px;">￥</text>
         <text class="price" style="font-size:18px;font-weight:bold;">{{spec.goods_price}}</text>
-        <text class="text-grey float-right">已售:120 剩余:10</text>
       </view>
     </view>
 
