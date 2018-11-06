@@ -18,8 +18,16 @@
             <navigator url="/pages/commodity/commodity?id={{item.goods_id}}">
               <text class="commodity__title">{{item.goods_name}}</text>
             </navigator>
-            <view 
+            <view style="margin-bottom:5px;"
               class="commodity__params">{{item.goods_sku.goods_attr}}</view>
+            <!-- 数量加减 -->
+            <!--
+            <view class="counter">
+              <view class="counter__action">-</view>
+              <view class="counter__value">1</view>
+              <view class="counter__action">+</view>
+            </view>
+            -->
           </view>
           <view class="commodity__info">
             <text class="price">
@@ -27,9 +35,13 @@
                 style="font-size:12px;"
                 >￥</text>{{item.goods_sku.goods_price}}</text>
             <text> x{{item.total_num}}</text>
+
+            <!-- 删除 -->
             <text class="float-right text-grey"
-              data-id="{{item.goods_id}}" data-sku="{{item.goods_sku_id}}"
+              data-id="{{item.goods_id}}"
+              data-sku="{{item.goods_sku_id}}"
               bindtap="onDelete">x</text>
+
           </view>
         </view>
       </view>
