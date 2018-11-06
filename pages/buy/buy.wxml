@@ -26,7 +26,9 @@
         </view>
       </view>
     </view>
-    <view><text style="font-size:14px;color:grey;">快递: {{data.express_price}}</text></view>
+    <view wx:if="{{!is_virtual}}">
+      <text style="font-size:14px;color:grey;">快递: {{data.express_price}}</text>
+    </view>
     <!--view><text style="font-size:14px;color:grey;">可用积分200抵扣2.00元</text></view-->
     <!--view><text style="font-size:14px;color:grey;">参与活动: 满180元送后水20ml或后乳液20xml</text></view-->
     <view style="text-align:right;">
