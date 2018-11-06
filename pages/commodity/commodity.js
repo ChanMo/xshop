@@ -8,7 +8,8 @@ Page({
     modalAnimation: null,
     commodity: {},
     spec: null, // 规则obj数据
-    spec_ids: null // 子规则ids
+    spec_ids: null, // 子规则ids
+    count: 1,
   },
   onLoad: function(option) {
     let id = option['id']
@@ -48,11 +49,11 @@ Page({
 
   // 加入购物车
   addToCart: function() {
+    const self = this
     const url = api.addToCart
     let data = {
       goods_id: this.data.id,
-      goods_num: 1,
-      //goods_sku_id: this.data.spec.goods_spec_id,
+      goods_num: this.data.count,
       goods_sku_id: this.data.spec.spec_sku_id,
       token: app.globalData.token
     }
@@ -68,7 +69,8 @@ Page({
       },
       fail: function(){
         wx.showToast({'title':'服务器错误'})
-      }
+      },
+      complete: () => self.setData({modalVisible:false})
     })
     //this.closeModal()
   },
@@ -88,14 +90,23 @@ Page({
     }})
   },
   // 关闭modal
-  closeModal: function() {
+  onModalHide: function() {
     this.setData({modalVisible:false})
   },
   // 开启modal
-  openModal: function() {
+  onModalShow: function() {
     this.setData({modalVisible:true})
   },
+  onDecrease: function() {
+    if(this.data.count == 1) {
+      return
+    }
+    this.setData({count:this.data.count-1})
+  },
+  onIncrease: function() {
+    this.setData({count:this.data.count+1})
+  },
   buy: function() {
-    wx.navigateTo({url:'/pages/buy/buy?commodity='+this.data.id+'&count=1&sku='+this.data.spec.spec_sku_id+'&is_virtual='+this.data.is_virtual})
+    wx.navigateTo({url:'/pages/buy/buy?commodity='+this.data.id+'&count='+this.data.count+'&sku='+this.data.spec.spec_sku_id+'&is_virtual='+this.data.is_virtual})
   }
 })
