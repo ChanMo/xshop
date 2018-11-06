@@ -228,3 +228,22 @@ input {
   height: 42px;
   border-radius: 50%;
 }
+
+.counter {
+  width: 82px;
+  display: flex;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  line-height: 20px;
+  height: 20px;
+}
+.counter__action {
+  width: 20px;
+  text-align: center;
+}
+.counter__value {
+  width: 40px;
+  text-align: center;
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+}
