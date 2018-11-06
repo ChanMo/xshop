@@ -7,24 +7,63 @@ Page({
     checked: [],
     price: 0
   },
-  onLoad: function() {
+  onShow: function() {
     this._fetchCart()
   },
   /** 结算操作 **/
   submit: function() {
-    if(this.data.checked.length > 0) {
+    if(this.data.checked.length == 0) {
       wx.navigateTo({url:'/pages/buy/buy'})
     } else {
       wx.showToast({mask:true, title:'请选择商品',icon:'none'})
     }
   },
+
+  /** 减少 **/
+  onDecrease: function(e) {
+    if(e.currentTarget.dataset.value == 1) {
+      console.log('no more to reduce')
+      return
+    }
+    wx.showLoading({title:'处理中',mask:true})
+    const goods_id = e.currentTarget.dataset.id
+    const goods_sku_id = e.currentTarget.dataset.sku
+    const url = api.decreaseFromCart
+    wx.request({url:url,
+      method: 'POST',
+      data: {
+        "goods_id": goods_id,
+        "goods_sku_id": goods_sku_id,
+        "token": app.globalData.token
+      },
+      success: res=>this._fetchCart(),
+      fail: error=>wx.showToast({title:'服务器错误'}),
+      complete: ()=>wx.hideLoading()
+    })
+  },
+
+  /** 增加 **/
+  onIncrease: function(e) {
+    wx.showLoading({title:'处理中',mask:true})
+    const goods_id = e.currentTarget.dataset.id
+    const goods_sku_id = e.currentTarget.dataset.sku
+    const url = api.addToCart
+    wx.request({url:url,
+      method: 'POST',
+      data: {
+        "goods_id": goods_id,
+        "goods_sku_id": goods_sku_id,
+        "goods_num": 1,
+        "token": app.globalData.token
+      },
+      success: res=>this._fetchCart(),
+      fail: error=>wx.showToast({title:'服务器错误'}),
+      complete: ()=>wx.hideLoading()
+    })
+
+  },
+
   _fetchCart: function() {
-    /**
-    let data = [
-      {"id":1,"name":"测试","price":120,"image":"https://img.alicdn.com/bao/uploaded/TB1lO6XJpXXXXc_XFXXLhc5_XXX_054423.jpg_160x160.jpg","checked":true,"count":1},
-      {"id":2,"name":"测试","price":120,"image":"https://img.alicdn.com/bao/uploaded/TB1lO6XJpXXXXc_XFXXLhc5_XXX_054423.jpg_160x160.jpg","checked":false,"count":2}
-    ]
-     **/
     let self = this
     let url = api.cart
     wx.request({url,
@@ -32,8 +71,11 @@ Page({
       data: {token:app.globalData.token},
       success: function(res) {
         if(res.data.code > 0) {
-          self.setData({cart: res.data.data.goods_list})
-          self._makePrice()
+          self.setData({
+            cart: res.data.data.goods_list,
+            price: res.data.data.order_total_price
+          })
+          //self._makePrice()
         }
       }
     })
@@ -59,12 +101,14 @@ Page({
 
   /** 单个商品选中 **/
   _setChecked: function(e) {
+    return
     let checked = e.detail.value
     this._updateCart(checked)
   },
 
   /** 全选 **/
   _checkAll: function(e) {
+    return
     console.log(e.detail.value)
     let checked = []
     if(e.detail.value) {
@@ -86,7 +130,7 @@ Page({
     let goods_sku_id = e.currentTarget.dataset.sku
     wx.showModal({title:'提醒',content:'确认删除此商品?',success:res=>{
       if(res.confirm) {
-        wx.showLoading({title:'请稍等'})
+        wx.showLoading({title:'处理中',mask:true})
         wx.request({
           url: api.deleteFromCart,
           method: 'POST',

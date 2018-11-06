@@ -22,8 +22,9 @@ text {
   margin-bottom:2px;
 }
 .commodity__main {
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex-grow:1
 }
 .comomdity__title {
