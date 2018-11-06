@@ -38,7 +38,7 @@
         </view>
       </navigator>
       <view class="text-right mb5">
-        <text class="commodity__summary">共2件商品 合计<text class="price">￥{{item.total_price}}</text>(含运费10.00)</text>
+        <text class="commodity__summary">共2件商品 合计<text class="price">￥{{item.total_price}}</text></text>
       </view>
       <view style="text-align:right">
         <navigator wx:if="{{item.pay_status.value == 10}}" 
