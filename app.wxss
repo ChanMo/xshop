@@ -186,7 +186,7 @@ input {
   align-items: center;
 }
 .row_between {
-  justify-content: space-bewteen;
+  justify-content: space-between;
 }
 .col3 {
   width: calc(100%/3);
