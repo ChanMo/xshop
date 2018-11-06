@@ -10,7 +10,7 @@
     "pages/cart/cart",
     "pages/user/user",
     "pages/commodity/commodity",
-    "pages/commodityList/commodityList",
+    "pages/list/list",
     "pages/brand/brand",
     "pages/search/search",
     "pages/order/order",
