@@ -4,7 +4,9 @@ const app = getApp()
 Page({
   data: {
     id: 0,
-    ticket: null
+    ticket: null,
+    modalVisible: false,
+    count: 1,
   },
   onLoad: function(option) {
     let id = option['id']
@@ -47,14 +49,29 @@ Page({
     }
   },
 
-  call: function(e) {
+  onCall: function(e) {
     let mobile = e.currentTarget.dataset.value
     wx.makePhoneCall({phoneNumber:mobile})
   },
-  buy: function() {
-    wx.navigateTo({url:'/pages/buy/buy?commodity='+this.data.id+'&count=1&sku='+this.data.spec.spec_sku_id+'&is_virtual=1'})
+  onModalShow: function() {
+    this.setData({modalVisible:true})
+  },
+  onModalHide: function() {
+    this.setData({modalVisible:false})
   },
   onMapClick: function() {
     wx.navigateTo({url:'/pages/map/map'})
+  },
+  onDecrease: function() {
+    if(this.data.count == 1) {
+      return
+    }
+    this.setData({count:this.data.count-1})
+  },
+  onIncrease: function() {
+    this.setData({count:this.data.count+1})
+  },
+  onBuy: function() {
+    wx.navigateTo({url:'/pages/buy/buy?commodity='+this.data.id+'&count='+this.data.count+'&sku='+this.data.spec.spec_sku_id+'&is_virtual=1'})
   }
 })

@@ -55,7 +55,7 @@
         <view class="mb5 small text-grey">营业时间: 上午8:30至下午5:30</view>
         <view class="mb5 small text-grey">商家电话: {{commodity.detail.store_phone}}
           <view class="button button-primary button-small float-right"
-            bindtap="call" 
+            bindtap="onCall" 
             data-value="{{commodity.detail.store_phone}}">拨打</view>
         </view>
         <view class="mb5 small text-grey">{{commodity.detail.store_address}}
@@ -76,5 +76,50 @@
 
   </scroll-view>
   <view class="action bg-primary text-white" 
-    style="justify-content:center;padding:10px 0;" bindtap="buy">立即购买</view>
+    style="justify-content:center;padding:10px 0;" bindtap="onModalShow">立即购买</view>
+</view>
+
+
+<!-- modal -->
+<view wx:if="{{modalVisible}}" 
+  class="modal-bg" 
+  bindtap="onModalHide"></view>
+<view wx:if="{{modalVisible}}" class="modal">
+  <view style="padding:20px;box-sizing:border-box;">
+    <view style="display:flex;align-items:center;">
+      <image 
+        src="{{commodity.detail.image}}"
+        style="width:120px;height:120px;" />
+      <view style="padding-left:10px;box-sizing:border-box">
+        <view style="font-size:14px;">{{commodity.detail.goods_name}}</view>
+        <view class="price">{{spec.goods_price}}</view>
+      </view>
+    </view>
+    <view>
+      <view class="option" wx:for="{{commodity.specData.spec_attr}}" 
+        wx:key="{{index}}">
+        <view class="option__header">{{item.group_name}}</view>
+        <view class="option__main">
+          <block wx:for="{{item.spec_items}}" wx:for-item="item2" 
+            wx:for-index="index2" wx:key="{{key2}}">
+            <text wx:if="{{spec_ids[index] == item2.item_id}}"
+              class="active">{{item2.spec_value}}</text>
+            <text wx:else data-id="{{item2.item_id}}" data-group="{{index}}"
+              bindtap="setSpec">{{item2.spec_value}}</text>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view style="display:flex;align-items:center;justify-content:space-between">
+      <text style="font-size:14px;">数量</text>
+      <view class="count">
+        <view class="count__action" bindtap="onDecrease">-</view>
+        <view class="count__input">{{count}}</view>
+        <view class="count__action" bindtap="onIncrease">+</view>
+      </view>
+    </view>
+  </view>
+  <view style="text-align:center;padding:20px;">
+    <text bindtap="onBuy">立即购买</text>
+  </view>
 </view>
