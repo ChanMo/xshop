@@ -24,7 +24,7 @@
     </navigator>
   </view>
   <view class="section">
-    <view>运费: {{order.express_price}}</view>
+    <view wx:if="{{!order.virtual}}">运费: {{order.express_price}}</view>
     <view>总金额: {{order.total_price}}</view>
     <view>支付金额: {{order.pay_price}}</view>
     <view>订单编号: {{order.order_no}}</view>
