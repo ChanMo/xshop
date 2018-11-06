@@ -7,7 +7,7 @@
     circular="true"
     indicator-active-color="white"
     indicator-dots="true">
-    <block wx:for="{{banner}}"> 
+    <block wx:for="{{banner}}" wx:key="{{index}}"> 
       <swiper-item style="width:100%">
         <image src="{{item.imgUrl}}" 
           style="width:100vw;height:{{100*600/1080}}vw;" />
@@ -22,7 +22,7 @@
 
   <!-- 板块 -->
   <view style="display:flex;flex-wrap:wrap;">
-    <block wx:for="{{link}}">
+    <block wx:for="{{link}}" wx:key="{{index}}">
       <navigator 
         style="width:25%;text-align:center;padding:10px 0;"
         url="{{item.link}}">
@@ -41,7 +41,7 @@
       style="width:208px;height:20px;" />
   </view>
   <view style="display:flex;flex-wrap:wrap;padding:0 10px">
-    <template wx:for="{{hot}}" 
+    <template wx:for="{{hot}}" wx:key="{{index}}"
       is="commodity"
       data="{{out:10,flex:2,id:item.goods_id,name:item.goods_name,cover:item.image,price:item.spec[0].goods_price,virtual:item.is_virtual}}" />
   </view>
