@@ -11,6 +11,7 @@ const api = {
   "commodity": domain + "goods/detail",
   "page": domain + "content/index",
   "addToCart": domain + "cart/add",
+  "decreaseFromCart": domain + "cart/sub",
   "cart": domain + "cart/lists",
   "deleteFromCart": domain + "cart/delete",
   "buy": domain + "order/cart",
