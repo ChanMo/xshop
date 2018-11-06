@@ -26,7 +26,8 @@
     "pages/walletLog/walletLog",
     "pages/team/team",
     "pages/sellOrder/sellOrder",
-    "pages/register/register"
+    "pages/register/register",
+    "pages/map/map"
   ],
   "window":{
     "backgroundTextStyle":"light",
