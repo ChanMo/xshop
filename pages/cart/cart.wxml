@@ -1,5 +1,5 @@
 <view class="container">
-  <scroll-view>
+  <scroll-view style="padding-bottom:60px;">
     <checkbox-group bindchange="_setChecked">
       <block wx:for="{{cart}}" wx:key="{{index}}">
       <view class="commodity" style="">
