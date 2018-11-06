@@ -13,7 +13,8 @@
   </view>
 
   <view class="section">
-    <view class="commodity-section" wx:for="{{data.goods_list}}">
+    <view class="commodity-section" wx:for="{{data.goods_list}}" 
+      wx:key="{{index}}">
       <image style="width:80px;height:80px;"
         src="{{item.image}}"/>
       <view class="commodity-section__right">
