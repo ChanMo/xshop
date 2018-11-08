@@ -1,6 +1,6 @@
 <import src="../../templates/search.wxml" />
 <import src="../../templates/commodity.wxml" />
-<template is="search" />
+<template is="search" data="{{value:search}}" />
 
 <view class="nav">
   <text 

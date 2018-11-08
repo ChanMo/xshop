@@ -44,5 +44,11 @@ Page({
         self.setData({data:res.data.data.data})
       }
     }})
-  }
+  },
+
+  // 搜索事件
+  onSearch: function(e) {
+    const value = e.detail.value
+    wx.navigateTo({url: '/pages/list/list?search='+value})
+  },
 })
