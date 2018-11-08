@@ -1,4 +1,4 @@
-const domain = "http://lyapi.lcpxj.com/v1/"
+const domain = "https://www.tsqgsc.com/v1/"
 const api = {
   "login": domain + "user/login",
   "sync": domain + "user/userInfo",
