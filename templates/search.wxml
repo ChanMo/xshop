@@ -1,6 +1,10 @@
 <template name="search">
-  <navigator url="/pages/search/search" style="height:32px;line-height:32px;margin:10px 15px;border:1px solid lightgrey;border-radius:16px;padding:0 10px;display:flex;justify-content:space-between;align-items:center;" class="border-primary">
-    <text class="text-grey text-small">输入关键字进行搜索</text>
-    <!--image src="../../images/search.png" style="width:20px;height:20px" /-->
-  </navigator>
+  <form style="display:block;padding:10px 15px;box-sizing:border-box;">
+    <input name="search" bindconfirm="onSearch"
+      placeholder='输入关键字进行搜索' 
+      placeholder-style="color:rgba(255,255,255,0.65)"
+      class="border-primary"
+      value="{{value}}"
+      style="border-width:2px;border-radius:15px;padding:2px 10px;" />
+  </form>
 </template>
