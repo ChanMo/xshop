@@ -31,6 +31,12 @@ Page({
     }})
   },
 
+  // 搜索事件
+  onSearch: function(e) {
+    const value = e.detail.value
+    wx.navigateTo({url: '/pages/list/list?search='+value})
+  },
+
   // 获取推荐商品
   _fetchHot: function() {
     let self = this

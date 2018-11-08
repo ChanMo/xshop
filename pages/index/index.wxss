@@ -8,19 +8,8 @@ page {
   position: absolute;
   top: 8px;
   left: 0;
-  height: 32px;
   width: calc(100% - 30px);
-  line-height: 32px;
   margin: 0 15px;
-  border: 1px solid white;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  box-sizing: border-box;
-  background-color: transparent;
-  box-shadow: 1px 1px 1px lightgrey;
 }
 .search text {
   font-size: 12px;

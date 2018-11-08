@@ -16,9 +16,12 @@
   </swiper>
 
   <!-- 搜索框 -->
-  <navigator class="search" url="/pages/search/search">
-    <text>输入关键字进行搜索</text>
-  </navigator>
+  <form class="search">
+    <input name="search" bindconfirm="onSearch"
+      placeholder='输入关键字进行搜索' 
+      placeholder-style="color:rgba(255,255,255,0.65)"
+      style="border:2px solid rgba(255,255,255,0.6);border-radius:4px;padding:2px 10px;color:#3a3a3a;" />
+  </form>
 
   <!-- 板块 -->
   <view style="display:flex;flex-wrap:wrap;">
