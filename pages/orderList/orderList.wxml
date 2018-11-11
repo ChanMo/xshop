@@ -44,6 +44,11 @@
       </view>
       <view style="text-align:right">
 
+        <navigator wx:if="{{item.pay_status.value == 10}}"
+          class="button button-grey mr10"
+          url="/pages/cancel/cancel?order={{item.order_id}}"
+          >取消订单</navigator>
+
         <!-- 支付按 -->
         <navigator wx:if="{{item.pay_status.value == 10}}" 
           class="button button-primary"

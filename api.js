@@ -18,6 +18,7 @@ const api = {
   "pay": domain + "user.order/pay",
   "qrcode": domain + "user/QrCode",
   "orderList": domain + "user.order/lists",
-  "order": domain + "user.order/detail"
+  "order": domain + "user.order/detail",
+  "cancel": domain + "user.order/cancel"
 }
 module.exports = api

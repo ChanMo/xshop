@@ -1,0 +1,7 @@
+<view class="text-center">
+  <view class="h2 mv20">确定取消此订单?</view>
+  <view>
+    <view bindtap="onCancel" class="button button-primary mr20">确定</view>
+    <view bindtap="onReturn" class="button button-grey">返回</view>
+  </view>
+</view>
