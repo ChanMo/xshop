@@ -8,6 +8,10 @@ App({
   },
   onLaunch: function () {
     let self = this
+    let p = 0
+    if(options.query.p) {
+      p = options.query.p
+    }
     const token = wx.getStorageSync('token')
     if(token) {
       // 如果已经登录
@@ -18,7 +22,7 @@ App({
         success: res => {
           console.log(res.code)
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          let url = api.login + '?code=' + res.code
+          let url = api.login + '?code=' + res.code + '&p=' + p
           wx.request({url:url, success:function(res){
             if(res.data.code > 0) {
               self.globalData.token = res.data.data.token
