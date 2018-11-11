@@ -1,4 +1,5 @@
 <view>
+  <!-- 状态切换 -->
   <view class="nav">
     <view data-value="payment" bindtap="setActive" 
       class="{{active == 'payment' && 'active'}}">待付款</view>
@@ -11,6 +12,7 @@
     <view data-value="refund" bindtap="setActive"
       class="{{active == 'refund' && 'active'}}">退款</view>
   </view>
+
   <scroll-view>
     <block wx:if="{{orders.length > 0}}">
     <view class="order" 
@@ -27,8 +29,8 @@
             src="{{goods.image.file_path}}"/>
           <view class="commodity__right">
             <view style="flex-grow:1">
-              <view><text class="commodity__title">{{goods.goods_name}}</text></view>
-              <view><text class="commodity__params">{{goods.goods_attr}}</text></view>
+              <view class="commodity__title">{{goods.goods_name}}</view>
+              <view class="commodity__params">{{goods.goods_attr}}</view>
             </view>
             <view>
               <text class="price">￥{{goods.goods_price}}</text>
@@ -41,9 +43,12 @@
         <text class="commodity__summary">共2件商品 合计<text class="price">￥{{item.total_price}}</text></text>
       </view>
       <view style="text-align:right">
+
+        <!-- 支付按 -->
         <navigator wx:if="{{item.pay_status.value == 10}}" 
           class="button button-primary"
-          url="/pages/pay/pay?amount={{item.total_price}}&order={{item.order_id}}">支付</navigator>
+          url="/pages/pay/pay?amount={{item.total_price}}&order={{item.order_id}}">去支付</navigator>
+
       </view>
     </view>
     </block>

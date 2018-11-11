@@ -34,3 +34,8 @@
 .commodity__summary {
   font-size: 14px;
 }
+.button {
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 5px 20px;
+}
