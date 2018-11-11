@@ -6,7 +6,7 @@ App({
     userInfo: null,
     token: null
   },
-  onLaunch: function () {
+  onLaunch: function (options) {
     let self = this
     let p = 0
     if(options.query.p) {
