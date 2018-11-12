@@ -1,13 +1,6 @@
 const api = require('../../api')
 const app = getApp()
 
-const link = [
-  //{"name":"我的二维码","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/qrcode.png","tap":"goTo","value":"/pages/qrcode/qrcode"},
-  {"name":"推广中心","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/point.png","tap":"goTo","value":"/pages/register/register"},
-  {"name":"买家须知","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/book.png","tap":"goTo","value":"/pages/page/page?slug=2"},
-  {"name":"客服电话","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/user.png","tap":"call","value":"18498985793","right":"18498985793"}
-]
-
 const order = [
   {"name":"待付款","icon":"../../images/gr1.png","param":"payment"},
   {"name":"待发货","icon":"../../images/gr2.png","param":"delivery"},
@@ -19,11 +12,12 @@ const order = [
 Page({
   data: {
     user: null,
-    link: link,
+    link: [],
     order: order
   },
-  onLoad: function() {
+  onShow: function() {
     this.setData({user:app.globalData.userInfo})
+    this._fetchUser()
   },
   onGotUserInfo: function(res) {
     let userInfo = res.detail.userInfo
@@ -35,9 +29,9 @@ Page({
     if(!e.detail.userInfo) {
       return
     }
+    const self = this
     app.globalData.userInfo = e.detail.userInfo
     this.setData({user: e.detail.userInfo})
-    // 更新用户数据
     const url = api.sync + '?token=' + app.globalData.token
     wx.request({
       url: url,
@@ -52,6 +46,28 @@ Page({
   call: function(e) {
     let mobile = e.currentTarget.dataset.value
     wx.makePhoneCall({phoneNumber:mobile})
+  },
+  _fetchUser: function() {
+    const self = this
+    const url = api.sync + '?token=' + app.globalData.token
+    wx.request({url,
+      success: res=>{
+        let promotionUrl
+        if(res.data.data.status == 0) {
+          promotionUrl = "/pages/register/register"
+        } else if(res.data.data.status == 1) {
+          promotionUrl = "/pages/promotion/promotion"
+        } else {
+          promotionUrl = "/pages/wait/wait"
+        }
+        self.setData({
+          link: [
+            {"name":"推广中心","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/point.png","tap":"goTo","value":promotionUrl},
+            {"name":"买家须知","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/book.png","tap":"goTo","value":"/pages/page/page?slug=2"},
+            {"name":"客服电话","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/user.png","tap":"call","value":"18498985793","right":"18498985793"}
+          ]
+        })
+      }
+    })
   }
-
 })
