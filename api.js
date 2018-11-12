@@ -19,6 +19,11 @@ const api = {
   "qrcode": domain + "user/QrCode",
   "orderList": domain + "user.order/lists",
   "order": domain + "user.order/detail",
-  "cancel": domain + "user.order/cancel"
+  "cancel": domain + "user.order/cancel",
+  "register": domain + "user.distribution/apply",
+  "promotion": domain + "user.distribution/index",
+  "team": domain + "user.distribution/team",
+  "log": domain + "user.distribution/detail",
+  "myorder": domain + "user.distribution/order_list"
 }
 module.exports = api
