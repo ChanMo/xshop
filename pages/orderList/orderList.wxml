@@ -5,8 +5,8 @@
       class="{{active == 'payment' && 'active'}}">待付款</view>
     <view data-value="delivery" bindtap="setActive" 
       class="{{active == 'delivery' && 'active'}}">待发货</view>
-    <view data-value="unreceived" bindtap="setActive" 
-      class="{{active == 'unreceived' && 'active'}}">待收货</view>
+    <view data-value="received" bindtap="setActive" 
+      class="{{active == 'received' && 'active'}}">待收货</view>
     <view data-value="finished" bindtap="setActive" 
       class="{{active == 'finished' && 'active'}}">已收货</view>
     <view data-value="refund" bindtap="setActive"
