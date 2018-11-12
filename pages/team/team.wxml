@@ -3,13 +3,14 @@
   <text class="col3 text-center">下线人数</text>
   <text class="col3 text-center">推广时间</text>
 </view>
-<scroll-view>
+<scroll-view wx:if="{{data.length > 0}}">
   <view wx:for="{{data}}" wx:key="{{index}}" class="row pv10 ph20 mb10">
     <view class="row col3">
-      <image src="{{item.avatar}}" class="avatar avatar-small mr10" />
-      <text>{{item.username}}</text>
+      <image src="{{item.avatarUrl}}" class="avatar avatar-small mr10" />
+      <text>{{item.nickName}}</text>
     </view>
-    <text class="text-center col3">{{item.count}}</text>
-    <text class="text-right col3 text-grey small">{{item.datetime}}</text>
+    <text class="text-center col3">{{item.underling_number}}</text>
+    <text class="text-right col3 text-grey small">{{item.create_time}}</text>
   </view>
 </scroll-view>
+<view wx:else class="text-grey text-center mt20">这里什么也没有</view>
