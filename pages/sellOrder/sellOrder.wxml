@@ -1,13 +1,16 @@
-<scroll-view>
-  <view wx:for="{{data}}" wx:key="{{index}}" class="p15 mb1 bg-white row">
-    <image src="{{item.image}}" class="mr10" style="width:48px;height:48px;border:1px solid #E0E0E0" />
+<scroll-view wx:if="{{data.length > 0}}">
+  <view wx:for="{{data}}" wx:key="{{index}}" 
+    class="p15 mb1 bg-white row">
+    <image src="{{item.goods[0].image.file_path}}" class="mr10" 
+      style="width:48px;height:48px;border:1px solid #E0E0E0" />
     <view style="flex-grow:1">
-      <view class="h5">{{item.title}}</view>
-      <view class="text-grey small">{{item.desc}}</view>
+      <view class="h5">{{item.goods[0].goods_name}}</view>
+      <view class="text-grey small">{{item.goods[0].goods_attr}}</view>
       <view>
-        <text class="text-price small">{{item.amount}}</text>
-        <text class="float-right text-price small">x{{item.count}}</text>
+        <text class="text-price small">{{item.goods[0].total_price}}</text>
+        <text class="float-right text-price small">x{{item.goods[0].total_num}}</text>
       </view>
     </view>
   </view>
 </scroll-view>
+<view wx:else class="text-grey text-center mt20">这里什么也没有</view>
