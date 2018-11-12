@@ -1,10 +1,11 @@
-<scroll-view>
+<scroll-view wx:if="{{data.length > 0}}">
   <view wx:for="{{data}}" wx:key="{{index}}" class="mb1 bg-white p10">
-    <view class="h5">{{item.title}}</view>
+    <view class="h5">{{item.desc}}</view>
     <view>
-      <text class="text-grey small">{{item.datetime}}</text>
-      <text wx:if="{{item.amount > 0}}" class="float-right text-price">+{{item.amount}}元</text>
-      <text wx:else class="float-right text-price">{{item.amount}}元</text>
+      <text class="text-grey small">{{item.create_time}}</text>
+      <text wx:if="{{item.amount > 0}}" class="float-right text-price">+{{item.money}}元</text>
+      <text wx:else class="float-right text-price">{{item.money}}元</text>
     </view>
   </view>
 </scroll-view>
+<view wx:else class="text-grey text-center mt20">这里什么也没有</view>
