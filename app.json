@@ -28,7 +28,8 @@
     "pages/sellOrder/sellOrder",
     "pages/register/register",
     "pages/map/map",
-    "pages/cancel/cancel"
+    "pages/cancel/cancel",
+    "pages/wait/wait"
   ],
   "window":{
     "backgroundTextStyle":"light",
