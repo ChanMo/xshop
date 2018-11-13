@@ -9,7 +9,9 @@ Page({
     commodity: 0,
     count: 0,
     sku: null,
-    is_virtual: 0
+    is_virtual: 0, // 是否为虚拟商品
+    name: null,
+    mobile: null
   },
   onLoad: function(options) {
     console.log(options)
@@ -67,22 +69,43 @@ Page({
   },
   _chooseAddress: function(e) {
     wx.chooseAddress({success:function(result) {
+      console.log(result)
       e.setData({address: result})
     }})
   },
   submit: function() {
+    wx.showLoading({title:'处理中',mask:true})
+
+    // 如果是普通商品
     if(!this.data.address && this.data.is_virtual == 0) {
       wx.showToast({mask:true,title:'请选择收货地址',icon:'error'})
       return
     }
+
+    // 如果是门票
+    if(this.data.is_virtual == 1) {
+      // 如果姓名或手机为空
+      if(!this.data.name) {
+        wx.showToast({mask:true,title:'请输入真实姓名'})
+        return
+      }
+      if (!this.data.mobile) {
+        wx.showToast({mask:true,title:'请输入手机号码'})
+        return
+      }
+    }
+
     let self = this
     let url = api.buy
     let data = {
       token: app.globalData.token,
       act: 'submit',
       from: this.data.from,
-      address: this.data.address
+      address: this.data.address,
+      name: this.data.name,
+      mobile: this.data.mobile
     }
+    // 如果是来自商品详情
     if(this.data.from == 'goods') {
       data['goods_id'] = this.data.commodity
       data['goods_sku_id'] = this.data.sku
@@ -102,7 +125,18 @@ Page({
       },
       fail: function(error) {
         wx.shotToast({title:'服务器错误'})
-      }
+      },
+      complete: ()=>wx.hideLoading()
     })
+  },
+
+  // 输入姓名
+  inputName: function(e) {
+    this.setData({'name': e.detail.value})
+  },
+
+  // 输入手机
+  inputMobile: function(e) {
+    this.setData({'mobile': e.detail.value})
   }
 })

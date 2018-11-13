@@ -27,6 +27,7 @@
         </view>
       </view>
     </view>
+
     <view wx:if="{{!is_virtual}}">
       <text style="font-size:14px;color:grey;">快递: {{data.express_price}}</text>
     </view>
@@ -34,6 +35,19 @@
     <!--view><text style="font-size:14px;color:grey;">参与活动: 满180元送后水20ml或后乳液20xml</text></view-->
     <view style="text-align:right;">
       <text class="text-small">共{{data.order_total_num}}件商品，小记<text clsss="price">{{data.order_total_price}}</text></text>
+    </view>
+
+  </view>
+
+  <!-- 姓名手机 -->
+  <view wx:if="{{is_virtual}}" class="pv20 ph20 bg-white">
+    <view class="mb10">
+      <view>姓名</view>
+      <input type="text" bindinput="inputName" />
+    </view>
+    <view>
+      <view>手机号码</view>
+      <input type="number" bindinput="inputMobile" />
     </view>
   </view>
 
