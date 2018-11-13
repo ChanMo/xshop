@@ -106,10 +106,10 @@
       </view>
     </view>
   </view>
-  <view style="display:flex;">
-    <view bindtap="addToCart"
-      style="text-align:center;width:100%;padding:15px;font-size:12px;color:white;background-color:#fe6487">加入购物车</view>
-    <view bindtap="buy"
-      style="text-align:center;width:100%;padding:15px;font-size:12px;color:white;background-color:#02baf2">立即购买</view>
+  <view style="display:flex;justify-content:center;">
+    <view bindtap="addToCart" class="button border-primary text-primary"
+      style="background-color:#ffebee;border:1px solid transparent;margin-right:10px;">加入购物车</view>
+    <view bindtap="buy" class="button bg-primary border-primary"
+      style="border:1px solid transparent">立即购买</view>
   </view>
 </view>
