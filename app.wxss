@@ -92,6 +92,10 @@ text {
 .p20 {
   padding: 20px;
 }
+.ph10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .ph15 {
   padding-left: 15px;
   padding-right: 15px;
