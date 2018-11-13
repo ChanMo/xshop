@@ -36,7 +36,10 @@
       class="button button-block button-primary mb20"
       url="/pages/pay/pay?amount={{order.pay_price}}&order={{id}}">去支付</navigator>
     <navigator wx:if="{{order.pay_status.value == 10}}" 
-      class="button button-block button-grey"
+      class="button button-block button-grey mb20"
       url="/pages/cancel/cancel?order={{id}}">取消订单</navigator>
+    <navigator wx:if="{{order.delivery_status.value == 20}}" 
+      class="button button-block button-primary mb20"
+      url="/pages/confirm/confirm?order={{id}}">确认收货</navigator>
   </view>
 </scroll-view>

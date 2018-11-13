@@ -29,6 +29,7 @@
     "pages/register/register",
     "pages/map/map",
     "pages/cancel/cancel",
+    "pages/confirm/confirm",
     "pages/wait/wait"
   ],
   "window":{

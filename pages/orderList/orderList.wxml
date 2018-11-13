@@ -25,13 +25,16 @@
           wx:for="{{item.goods}}"
           wx:for-item="goods"
           wx:key="{{index2}}">
+          <!-- 商品图片 -->
           <image class="commodity-section__cover"
             src="{{goods.image.file_path}}"/>
           <view class="commodity__right">
+            <!-- 商品标题，描述 -->
             <view style="flex-grow:1">
               <view class="commodity__title">{{goods.goods_name}}</view>
               <view class="commodity__params">{{goods.goods_attr}}</view>
             </view>
+            <!-- 商品价格，数量 -->
             <view>
               <text class="price">￥{{goods.goods_price}}</text>
               <text class="float-right"> x{{goods.total_num}}</text>
@@ -44,15 +47,23 @@
       </view>
       <view style="text-align:right">
 
+        <!-- 取消订单 -->
         <navigator wx:if="{{item.pay_status.value == 10}}"
           class="button button-grey mr10"
           url="/pages/cancel/cancel?order={{item.order_id}}"
           >取消订单</navigator>
 
-        <!-- 支付按 -->
+        <!-- 支付 -->
         <navigator wx:if="{{item.pay_status.value == 10}}" 
           class="button button-primary"
           url="/pages/pay/pay?amount={{item.total_price}}&order={{item.order_id}}">去支付</navigator>
+
+        <!-- 确认收货 -->
+        <navigator wx:if="{{item.delivery_status.value == 20}}" 
+          class="button button-primary"
+          url="/pages/confirm/confirm?order={{item.order_id}}">确认收货</navigator>
+
+
 
       </view>
     </view>
