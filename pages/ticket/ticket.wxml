@@ -119,7 +119,7 @@
       </view>
     </view>
   </view>
-  <view style="text-align:center;padding:20px;">
-    <text bindtap="onBuy">立即购买</text>
+  <view style="text-align:center;padding:15px;" class="bg-primary">
+    <text bindtap="onBuy" class="text-white">立即购买</text>
   </view>
 </view>
