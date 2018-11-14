@@ -16,6 +16,18 @@ page {
   margin-left: 20px;
 }
 .delivery__item {
-  font-size: 14px;
+  display: flex;
   margin-bottom: 10px;
+}
+.middle {
+  position:relative;
+  margin:0 15px;
+}
+.middle-line {
+  width: 1px;
+  height: 100%;
+  background: lightgrey;
+  position: absolute;
+  left: 50%;
+  z-index: -1;
 }
