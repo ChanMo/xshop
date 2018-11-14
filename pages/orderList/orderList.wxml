@@ -58,6 +58,11 @@
           class="button button-primary"
           url="/pages/pay/pay?amount={{item.total_price}}&order={{item.order_id}}">去支付</navigator>
 
+        <!-- 查看物流 -->
+        <navigator wx:if="{{item.delivery_status.value == 20}}" 
+          class="button button-grey mr10"
+          url="/pages/delivery/delivery?order={{item.order_id}}">查看物流</navigator>
+
         <!-- 确认收货 -->
         <navigator wx:if="{{item.delivery_status.value == 20}}" 
           class="button button-primary"
