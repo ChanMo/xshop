@@ -10,6 +10,7 @@ Page({
     spec: null, // 规则obj数据
     spec_ids: null, // 子规则ids
     count: 1,
+    content: null, // 图片详情
   },
   onLoad: function(option) {
     let id = option['id']
@@ -84,7 +85,8 @@ Page({
           is_virtual: res.data.data.detail.is_virtual,
           commodity: res.data.data,
           spec: res.data.data.detail.spec[0],
-          spec_ids: res.data.data.detail.spec[0].spec_sku_id.split('_')
+          spec_ids: res.data.data.detail.spec[0].spec_sku_id.split('_'),
+          content: res.data.data.detail.content.replace(/<img /, '<img style="width:100%" ')
         })
       }
     }})

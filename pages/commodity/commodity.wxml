@@ -7,7 +7,7 @@
       indicator-active-color="#ff7b03"
       indicator-dots="true"
       style="height:{{100/1080*673}}vw">
-      <block wx:for="{{commodity.detail.images}}">
+      <block wx:for="{{commodity.detail.images}}" wx:key="{{index}}">
         <swiper-item>
           <image src="{{item.file_path}}" 
             style="width:100vw;height:{{100/1080*673}}vw" />
@@ -44,7 +44,7 @@
     <view class="section">
       <view style="margin-bottom:10px;"><text class="text-primary">商品详情</text></view>
       <rich-text style="overflow:hidden;"
-        nodes="{{commodity.detail.content}}"></rich-text>
+        nodes="{{content}}"></rich-text>
     </view>
 
   </scroll-view>
@@ -84,7 +84,7 @@
       </view>
     </view>
     <view>
-      <view class="option" wx:for="{{commodity.specData.spec_attr}}">
+      <view class="option" wx:for="{{commodity.specData.spec_attr}}" wx:key="{{index}}">
         <view class="option__header">{{item.group_name}}</view>
         <view class="option__main">
           <block wx:for="{{item.spec_items}}" wx:for-item="item2" 
