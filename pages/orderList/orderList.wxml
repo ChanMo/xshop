@@ -58,6 +58,12 @@
           class="button button-primary"
           url="/pages/pay/pay?amount={{item.total_price}}&order={{item.order_id}}">去支付</navigator>
 
+        <!-- 退款订单 -->
+        <navigator wx:if="{{item.pay_status.value == 20 && item.delivery_status.value == 10}}" 
+          class="button button-primary"
+          url="/pages/refund/refund?order={{item.order_id}}">退款</navigator>
+
+
         <!-- 查看物流 -->
         <navigator wx:if="{{item.delivery_status.value == 20}}" 
           class="button button-grey mr10"

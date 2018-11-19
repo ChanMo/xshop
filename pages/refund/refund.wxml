@@ -1,0 +1,7 @@
+<view class="text-center">
+  <view class="h2 mv20">确定退款?</view>
+  <view>
+    <view bindtap="onRefund" class="button button-primary mr20">确定</view>
+    <view bindtap="onReturn" class="button button-grey">取消</view>
+  </view>
+</view>

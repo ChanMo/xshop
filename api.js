@@ -20,6 +20,7 @@ const api = {
   "orderList": domain + "user.order/lists",
   "order": domain + "user.order/detail",
   "cancel": domain + "user.order/cancel",
+  "refund": domain + "user.order/refund",
   "confirm": domain + "user.order/receipt",
   "delivery": domain + "user.order/express",
   "register": domain + "user.distribution/apply",
