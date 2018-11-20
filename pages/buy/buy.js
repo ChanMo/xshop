@@ -120,11 +120,11 @@ Page({
         if(res.data.code == 1) {
           wx.navigateTo({url:'/pages/pay/pay?amount='+res.data.data.order_amount+'&order='+res.data.data.order_id})
         } else {
-          wx.shotToast({title:res.data.msg})
+          wx.showToast({title:res.data.msg})
         }
       },
       fail: function(error) {
-        wx.shotToast({title:'服务器错误'})
+        wx.showToast({title:'服务器错误'})
       },
       complete: ()=>wx.hideLoading()
     })
