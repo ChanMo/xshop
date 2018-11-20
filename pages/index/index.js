@@ -11,6 +11,14 @@ Page({
     hot: []
   },
 
+  // 分享
+  onShareAppMessage: function(res) {
+    return {
+      title: '特色抢购',
+      path: '/pages/index/index?p=' + app.globalData.uid
+    }
+  },
+
   // 获取轮播图数据
   _fetchBanner: function() {
     let self = this
