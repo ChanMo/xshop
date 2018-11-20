@@ -13,8 +13,10 @@ App({
       p = options.query.p
     }
     const token = wx.getStorageSync('token')
+    const uid = wx.getStorageSync('uid')
     if(token) {
       // 如果已经登录
+      self.globalData.uid = uid
       self.globalData.token = token
     } else {
       // 登录
@@ -28,6 +30,7 @@ App({
               self.globalData.token = res.data.data.token
               self.globalData.uid = res.data.data.user_id
               wx.setStorageSync('token', res.data.data.token)
+              wx.setStorageSync('uid', res.data.data.user_id)
             } else {
               //wx.showToast({title:'登录失败'})
             }
