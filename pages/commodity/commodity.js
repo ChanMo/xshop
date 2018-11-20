@@ -26,6 +26,14 @@ Page({
     this.setData({modalAnimation:animation.export()})
   },
 
+  // 分享
+  onShareAppMessage: function(res) {
+    return {
+      title: '[特色抢购] '+this.data.commodity.detail.goods_name,
+      path: '/pages/commodity/commodity?id=' + this.data.id + '&p=' + app.globalData.uid
+    }
+  },
+
   // 选择规格
   setSpec: function(e) {
     let value = e.currentTarget.dataset.id

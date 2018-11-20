@@ -48,6 +48,8 @@
     </view>
 
   </scroll-view>
+
+  <!-- 底部操作 -->
   <view class="action">
     <navigator
       hover-class="none"
