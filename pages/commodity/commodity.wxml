@@ -21,11 +21,11 @@
       <view>
         <view style="display:flex;justify-content:space-between;align-items:center;">
           <text class="text">{{commodity.detail.goods_name}}</text>
-          <view style="padding-left:10px;box-sizing:border-box;">
+          <button open-type="share" plain="true" style="border-width:0px">
             <image 
               src="../../images/share.png" 
               style="width:44px;height:26.5px" />
-          </view>
+          </button>
         </view>
         <view>
           <text class="price" style="font-size:10px;">￥</text>
@@ -37,7 +37,9 @@
 
     <!-- 规格 -->
     <view class="section" wx:if="{{commodity.specData}}">
-      <view class="option" wx:for="{{commodity.specData.spec_attr}}">
+      <view class="option" 
+        wx:for="{{commodity.specData.spec_attr}}" 
+        wx:key="{{index}}">
         <view class="option__header">{{item.group_name}}</view>
         <view class="option__main">
           <block wx:for="{{item.spec_items}}" wx:for-item="item2" 
@@ -97,7 +99,8 @@
       </view>
     </view>
     <view>
-      <view class="option" wx:for="{{commodity.specData.spec_attr}}" wx:key="{{index}}">
+      <view class="option" wx:for="{{commodity.specData.spec_attr}}" 
+        wx:key="{{index}}">
         <view class="option__header">{{item.group_name}}</view>
         <view class="option__main">
           <block wx:for="{{item.spec_items}}" wx:for-item="item2" 
