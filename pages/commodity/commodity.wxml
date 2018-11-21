@@ -1,5 +1,6 @@
 <view>
   <scroll-view style="margin-bottom:50px;">
+
     <!-- 轮播图 -->
     <swiper 
       autoplay="true"
@@ -15,12 +16,22 @@
       </block>
     </swiper>
 
+    <!-- 商品基础信息 -->
     <view class="container section" style="padding:20px 10px;">
-      <view><text class="text">{{commodity.detail.goods_name}}</text></view>
       <view>
-        <text class="price" style="font-size:10px;">￥</text>
-        <text class="price" style="font-size:18px;font-weight:bold;">{{spec.goods_price}}</text>
-        <text class="text-grey float-right" style="font-size:14px;">快递:10.00</text>
+        <view style="display:flex;justify-content:space-between;align-items:center;">
+          <text class="text">{{commodity.detail.goods_name}}</text>
+          <view style="padding-left:10px;box-sizing:border-box;">
+            <image 
+              src="../../images/share.png" 
+              style="width:44px;height:26.5px" />
+          </view>
+        </view>
+        <view>
+          <text class="price" style="font-size:10px;">￥</text>
+          <text class="price" style="font-size:18px;font-weight:bold;">{{spec.goods_price}}</text>
+          <text class="text-grey float-right" style="font-size:14px;">快递:10.00</text>
+        </view>
       </view>
     </view>
 
