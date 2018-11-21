@@ -13,6 +13,13 @@ Page({
     this.setData({id:id})
     this._fetchTicket()
   },
+  // 分享
+  onShareAppMessage: function(res) {
+    return {
+      title: '[特色抢购] '+this.data.commodity.detail.goods_name,
+      path: '/pages/ticket/ticket?id=' + this.data.id + '&p=' + app.globalData.uid
+    }
+  },
   _fetchTicket: function() {
     let self = this
     let url = api.commodity + '?goods_id=' + this.data.id

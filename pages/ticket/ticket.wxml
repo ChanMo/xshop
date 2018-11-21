@@ -15,8 +15,17 @@
       </block>
     </swiper>
 
+    <!-- 商品信息 -->
     <view class="container section" style="padding:20px 10px;">
-      <text class="h3 mb5">{{commodity.detail.goods_name}}</text>
+      <view class="row row_between" style="align-items:center;">
+        <view class="h3 mb5" 
+          style="flex-grow:1">{{commodity.detail.goods_name}}</view>
+        <button open-type="share" plain="true" style="border-width:0px">
+          <image 
+            src="../../images/share.png" 
+            style="width:44px;height:26.5px" />
+        </button>
+      </view>
       <view>
         <text class="price" style="font-size:10px;">￥</text>
         <text class="price" style="font-size:18px;font-weight:bold;">{{spec.goods_price}}</text>
