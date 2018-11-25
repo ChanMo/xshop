@@ -20,6 +20,12 @@ Page({
       path: '/pages/ticket/ticket?id=' + this.data.id + '&p=' + app.globalData.uid
     }
   },
+
+  // 跳转海报
+  onGoPost: function() {
+    wx.navigateTo({url: '/pages/post/post?id='+this.data.id+'&name='+this.data.commodity.detail.goods_name})
+  },
+
   _fetchTicket: function() {
     let self = this
     let url = api.commodity + '?goods_id=' + this.data.id

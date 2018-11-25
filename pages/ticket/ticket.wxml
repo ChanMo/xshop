@@ -20,7 +20,7 @@
       <view class="row row_between" style="align-items:center;">
         <view class="h3 mb5" 
           style="flex-grow:1">{{commodity.detail.goods_name}}</view>
-        <button open-type="share" plain="true" style="border-width:0px">
+        <button bindtap="onGoPost" plain="true" style="border-width:0px">
           <image 
             src="../../images/share.png" 
             style="width:44px;height:26.5px" />

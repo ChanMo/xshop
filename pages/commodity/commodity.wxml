@@ -21,7 +21,7 @@
       <view>
         <view style="display:flex;justify-content:space-between;align-items:center;">
           <text class="text">{{commodity.detail.goods_name}}</text>
-          <button open-type="share" plain="true" style="border-width:0px">
+          <button bindtap="onGoPost"  plain="true" style="border-width:0px">
             <image 
               src="../../images/share.png" 
               style="width:44px;height:26.5px" />

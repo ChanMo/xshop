@@ -34,6 +34,11 @@ Page({
     }
   },
 
+  // 跳转海报
+  onGoPost: function() {
+    wx.navigateTo({url: '/pages/post/post?id='+this.data.id+'&name='+this.data.commodity.detail.goods_name})
+  },
+
   // 选择规格
   setSpec: function(e) {
     let value = e.currentTarget.dataset.id

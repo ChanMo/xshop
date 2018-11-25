@@ -9,6 +9,7 @@ const api = {
   "category": domain + "category/lists",
   "commodities": domain + "goods/lists",
   "commodity": domain + "goods/detail",
+  "post": domain + "goods/poster",
   "page": domain + "content/index",
   "addToCart": domain + "cart/add",
   "decreaseFromCart": domain + "cart/sub",

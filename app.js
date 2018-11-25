@@ -12,13 +12,13 @@ App({
     if(options.query.p) {
       p = options.query.p
     }
-    const token = wx.getStorageSync('token')
-    const uid = wx.getStorageSync('uid')
-    if(token) {
-      // 如果已经登录
-      self.globalData.uid = uid
-      self.globalData.token = token
-    } else {
+    //const token = wx.getStorageSync('token')
+    //const uid = wx.getStorageSync('uid')
+    //if(token) {
+    //  // 如果已经登录
+    //  self.globalData.uid = uid
+    //  self.globalData.token = token
+    //} else {
       // 登录
       wx.login({
         success: res => {
@@ -31,6 +31,7 @@ App({
               self.globalData.uid = res.data.data.user_id
               wx.setStorageSync('token', res.data.data.token)
               wx.setStorageSync('uid', res.data.data.user_id)
+              self._getUserInfo()
             } else {
               //wx.showToast({title:'登录失败'})
             }
@@ -39,8 +40,13 @@ App({
           }})
         }
       })
-    }
+      //}
+  },
 
+  /**
+   * 获取用户头像等信息
+   */
+  _getUserInfo: function() {
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -62,5 +68,6 @@ App({
         }
       }
     })
+
   }
 })
