@@ -37,5 +37,59 @@ Page({
       success:(res)=>this.setData({image: res.data.data.img_path}),
       complete: ()=>wx.hideLoading()
     })
+  },
+
+  /**
+   * 长按保存图片
+   */
+  onSave: function(e) {
+    const self = this
+    wx.showModal({
+      title: '提示',
+      content: '是否保存图片?',
+      success: (res) => {
+        if(res.confirm) {
+          self._authForImageSave()
+        }
+      }
+    })
+
+  },
+
+  /**
+   * 授权图片存储
+   */
+  _authForImageSave() {
+    const self = this
+    wx.getSetting({
+      success(res) {
+        if(!res.authSetting['scope.writePhotosAlbum']) {
+          wx.authorize({
+            scope: 'scope.writePhotosAlbum',
+            success() {
+              self._saveImage()
+            }
+          })
+        } else {
+          self._saveImage()
+        }
+      }
+    })
+  },
+
+  /**
+   * 保存图片
+   */
+  _saveImage() {
+    wx.showLoading({title:'正在下载图片...', mask:true})
+    wx.getImageInfo({
+      src:this.data.image,
+      success:(res)=>{
+        wx.saveImageToPhotosAlbum({
+          filePath: res.path,
+          success:(ress)=>wx.showToast({title:'保存成功'})})
+      },
+      complete: ()=>wx.hideLoading()
+    })
   }
 })
