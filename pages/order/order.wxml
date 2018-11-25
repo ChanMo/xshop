@@ -38,6 +38,9 @@
     <navigator wx:if="{{order.pay_status.value == 10}}" 
       class="button button-block button-grey mb20"
       url="/pages/cancel/cancel?order={{id}}">取消订单</navigator>
+    <navigator wx:if="{{item.virtaul == 1 && order.pay_status.value == 20 && order.delivery_status.value == 10}}" 
+      class="button button-block button-grey mb20"
+      url="/pages/order/order?id={{id}}">二维码</navigator>
     <navigator wx:if="{{order.pay_status.value == 20 && order.delivery_status.value == 10}}" 
       class="button button-block button-grey mb20"
       url="/pages/refund/refund?order={{id}}">退款</navigator>

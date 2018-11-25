@@ -59,6 +59,11 @@
           url="/pages/pay/pay?amount={{item.total_price}}&order={{item.order_id}}">去支付</navigator>
 
         <!-- 退款订单 -->
+        <navigator wx:if="{{item.virtual == 1 && item.pay_status.value == 20 && item.delivery_status.value == 10}}" 
+          class="button button-grey mr10"
+          url="/pages/order/order?id={{item.order_id}}">二维码</navigator>
+
+        <!-- 退款订单 -->
         <navigator wx:if="{{item.pay_status.value == 20 && item.delivery_status.value == 10}}" 
           class="button button-primary"
           url="/pages/refund/refund?order={{item.order_id}}">退款</navigator>
