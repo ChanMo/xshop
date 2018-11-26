@@ -10,6 +10,7 @@
   </view>
   <view class="commodity-container">
     <navigator wx:for="{{order.goods}}"
+      wx:key="{{index}}"
       style="display:flex;padding:10px;"
       url="/pages/commodity/commodity?id={{item.goods_id}}">
       <image 
@@ -23,12 +24,21 @@
       </view>
     </navigator>
   </view>
+
   <view class="section">
     <view wx:if="{{!order.virtual}}">运费: {{order.express_price}}</view>
     <view>总金额: {{order.total_price}}</view>
     <view>支付金额: {{order.pay_price}}</view>
     <view>订单编号: {{order.order_no}}</view>
     <view>创建时间: {{order.create_time}}</view>
+  </view>
+
+  <!-- 如果是门票，展示二维码 -->
+  <view wx:if="{{order.virtual == 1}}" 
+    class="section text-center mt20">
+    <canvas 
+      style="display:inline-block;width:200px;height:200px;" 
+      canvas-id="myQrcode"></canvas>
   </view>
 
   <view style="padding:20px;">
@@ -41,7 +51,7 @@
     <navigator wx:if="{{item.virtaul == 1 && order.pay_status.value == 20 && order.delivery_status.value == 10}}" 
       class="button button-block button-grey mb20"
       url="/pages/order/order?id={{id}}">二维码</navigator>
-    <navigator wx:if="{{order.virtual == 1 && order.pay_status.value == 20 && order.delivery_status.value == 10}}" 
+    <navigator wx:if="{{order.virtual == 0 && order.pay_status.value == 20 && order.delivery_status.value == 10}}" 
       class="button button-block button-grey mb20"
       url="/pages/refund/refund?order={{id}}">退款</navigator>
     <navigator wx:if="{{order.delivery_status.value == 20}}" 
