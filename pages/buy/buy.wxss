@@ -12,3 +12,30 @@ page {
   display: flex;
   align-items: center;
 }
+
+.modalDlg{
+    width: 580rpx;
+    //height: 564rpx;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    z-index: 9999;
+    margin: -370rpx 85rpx;
+    background-color: #fff;
+    border-radius: 36rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modalDlg text{
+  margin-top: 29rpx;
+}
+.close{
+   width:575rpx;
+  border-top:1px #DDDDDD solid;
+  //margin-top:432rpx;
+  height:53rpx;
+  text-align:center;
+
+
+}

@@ -11,10 +11,13 @@ Page({
     sku: null,
     is_virtual: 0, // 是否为虚拟商品
     name: null,
-    mobile: null
+    mobile: null,
+    remark: null, //备注
+    check: 0,
+    isAgreement: false,
+    goods_sku_id:''
   },
   onLoad: function(options) {
-    console.log(options)
     if(options['commodity']) {
       this.setData({
         from: 'goods',
@@ -23,12 +26,13 @@ Page({
         sku: options['sku'],
         is_virtual: options['is_virtual'] ? parseInt(options['is_virtual']) : 0
       })
-    } else {
-      this.setData({from:'cart'})
+    } else if (options['goods_sku_id']) {
+      this.setData({ from: 'cart', goods_sku_id:options['goods_sku_id']})
     }
     this._fetchData()
   },
   _fetchData: function() {
+
     let url = api.buy
     let data = {
       token: app.globalData.token,
@@ -41,11 +45,15 @@ Page({
       data['goods_sku_id'] = this.data.sku
       data['goods_num'] = this.data.count
     }
+    if (this.data.from == 'cart') {
+      data['goods_sku_id'] = this.data.goods_sku_id
+    }
     wx.request({
       url:url,
       method:'post',
       data: data,
-      success:res=>this.setData({data:res.data.data})})
+      success:res=>this.setData({data:res.data.data})
+    })
   },
 
   /** 计算价格 **/
@@ -93,6 +101,10 @@ Page({
         wx.showToast({mask:true,title:'请输入手机号码'})
         return
       }
+      if (this.data.check == 0) {
+        wx.showToast({ mask: true, title: '请同意购买须知' })
+        return
+      }
     }
 
     let self = this
@@ -103,13 +115,17 @@ Page({
       from: this.data.from,
       address: this.data.address,
       name: this.data.name,
-      mobile: this.data.mobile
+      mobile: this.data.mobile,
+      remark: this.data.remark
     }
     // 如果是来自商品详情
     if(this.data.from == 'goods') {
       data['goods_id'] = this.data.commodity
       data['goods_sku_id'] = this.data.sku
       data['goods_num'] = this.data.count
+    }
+    if (this.data.from == 'cart') {
+      data['goods_sku_id'] = this.data.goods_sku_id
     }
     wx.request({
       url: url,
@@ -138,5 +154,25 @@ Page({
   // 输入手机
   inputMobile: function(e) {
     this.setData({'mobile': e.detail.value})
+  },
+
+  // 输入备注
+  inputRemark: function(e) {
+    this.setData({'remark': e.detail.value})
+  },
+
+  //改变协议
+  agreeMent: function (e) {
+    if (e.detail.value == '') {
+      this.setData({ 'check': 0 })
+    } else {
+      this.setData({ 'check': 1 })
+    }
+  },
+  showAgreement: function () {
+    this.setData({ 'isAgreement': true })
+  },
+  close: function () {
+    this.setData({ 'isAgreement': false })
   }
 })

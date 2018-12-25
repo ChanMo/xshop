@@ -15,7 +15,7 @@
   <view class="section">
     <view class="commodity-section" wx:for="{{data.goods_list}}" 
       wx:key="{{index}}">
-      <image style="width:80px;height:80px;"
+      <image style="width:80px;height:80px;min-width:80px;"
         src="{{item.image}}"/>
       <view class="commodity-section__right">
         <view><text>{{item.goods_name}}</text></view>
@@ -45,11 +45,24 @@
       <view>姓名</view>
       <input type="text" bindinput="inputName" />
     </view>
-    <view>
+    <view class="mb10">
       <view>手机号码</view>
       <input type="number" bindinput="inputMobile" />
     </view>
+    <view>
+      <view>备注</view>
+      <textarea bindinput="inputRemark" />
+    </view>
   </view>
+  <checkbox-group bindchange="agreeMent" style="background:#ffffff"  wx:if="{{is_virtual}}">
+	<checkbox value='true' style='width:30px;height:30px;margin-left:19px;' />我已经查看<text catchtap="showAgreement" style="text-decoration:underline;">购买须知</text>，并同意该内容。
+</checkbox-group>
+
+<view class="modalDlg" wx:if="{{isAgreement}}">
+    <text>{{data.notice}}</text>
+    <view  bindtap="close" class='close'>关闭</view>
+</view>
+
 
   <view class="action">
     <view style="flex-grow:1;text-align:right;padding-right:10px;">
