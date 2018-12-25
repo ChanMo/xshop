@@ -6,7 +6,7 @@
     <image 
       src="{{cover}}" 
       style="width:calc((100vw - {{out*2}}px) / {{flex}} - 10px);height:calc((100vw - {{out*2}}px) / {{flex}} - 10px)" />
-    <view style="line-height:16px;height:39px;overflow:hidden;">
+    <view style="line-height:16px;height:32px;overflow:hidden;">
       <text style="font-size:12px;">{{name}}</text></view>
     <view>
       <text class="price" style="font-size:10px;">￥</text>
