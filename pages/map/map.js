@@ -1,9 +1,9 @@
 Page({
   data: {
-    longitude: 113.12345,
-    latitude: 23.12345,
+    longitude: 119.487000,
+    latitude: 35.510140,
     markers: [
-      {id:0,latitude:23.12345,longitude:113.12345,title:'某某景区'}
+      { id: 0, latitude: 35.510140, longitude: 119.487000,title:'日照沁园春滑雪场'}
     ]
   }
 })
