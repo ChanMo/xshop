@@ -3,17 +3,33 @@ const app = getApp()
 
 Page({
   data: {
+   iscart: false,
+   goodList:[],
     cart: [],
-    checked: [],
-    price: 0
+    checked: false,
+    price: 0,
+    checkAll: false,
+    totalPrice: 0,
+    goods_sku_id: ''
   },
   onShow: function() {
     this._fetchCart()
   },
   /** 结算操作 **/
   submit: function() {
-    if(this.data.checked.length == 0) {
-      wx.navigateTo({url:'/pages/buy/buy'})
+    var goodList = this.data.goodList;
+    var goods_sku_id = '';
+    var totalPrice = 0;
+    for (var i = 0; i < goodList.length; i++) {
+      var good = goodList[i];
+      if (good.checked) {
+        totalPrice += good.total_price * 1;
+        goods_sku_id = goods_sku_id + good.goods_sku_id + ',';
+      }
+    }
+    if (totalPrice > 0) {
+      goods_sku_id = goods_sku_id.slice(0, -1);
+      wx.navigateTo({ url: '/pages/buy/buy?goods_sku_id=' + goods_sku_id})
     } else {
       wx.showToast({mask:true, title:'请选择商品',icon:'none'})
     }
@@ -60,7 +76,7 @@ Page({
       fail: error=>wx.showToast({title:'服务器错误'}),
       complete: ()=>wx.hideLoading()
     })
-
+    this.calculateTotal();
   },
 
   _fetchCart: function() {
@@ -72,51 +88,30 @@ Page({
       success: function(res) {
         if(res.data.code > 0) {
           self.setData({
-            cart: res.data.data.goods_list,
-            price: res.data.data.order_total_price
+            goodList: res.data.data.goods_list,
+           // price: res.data.data.order_total_price
           })
-          //self._makePrice()
+          //console.log(res.data)
+          self.calculateTotal();
         }
       }
     })
-    //let checked = data.filter(item=>item.checked)
-    //this.setData({cart:data, checked:checked.map(item=>item.id)})
-    console.log(this.data.checked)
   },
-
-  /** 计算价格 **/
-  _makePrice: function() {
-    let price = 0
-    let checked = this.data.cart.filter(item => item.checked)
-    checked.map(item => price += item.price * item.count)
-    this.setData({price:price})
-  },
-
-  /** 更新数据库操作 **/
-  _updateCart: function(checked) {
-    console.log(checked)
-    this.setData({checked:checked})
-    this._makePrice()
-  },
-
-  /** 单个商品选中 **/
-  _setChecked: function(e) {
-    return
-    let checked = e.detail.value
-    this._updateCart(checked)
-  },
-
-  /** 全选 **/
-  _checkAll: function(e) {
-    return
-    console.log(e.detail.value)
-    let checked = []
-    if(e.detail.value) {
-      checked = this.data.cart.map(item=>item.id)
+  calculateTotal: function () {
+    var goodList = this.data.goodList;
+    var totalPrice = 0;
+    for (var i = 0; i < goodList.length; i++) {
+      var good = goodList[i];
+      if (good.checked) {
+        totalPrice += good.total_price*1;
+      }
     }
-    this._updateCart(checked)
+    totalPrice = totalPrice.toFixed(2);
+    this.setData({
+      'totalPrice': totalPrice
+    })
   },
-
+  
   // 跳转商品详情
   goToCommodity: function(e) {
     let id = e.currentTarget.dataset.id
@@ -151,5 +146,56 @@ Page({
         })
       }
     }})
-  }
+    this.calculateTotal();
+  },
+  /**
+   * 用户选择购物车商品
+   */
+  checkboxChange: function (e) {
+
+   // console.log('checkbox发生change事件，携带value值为：', e.detail.value);
+    var checkboxItems = this.data.goodList;
+    var values = e.detail.value;
+    for (var i = 0; i < checkboxItems.length; ++i) {
+      checkboxItems[i].checked = false;
+      for (var j = 0; j < values.length; ++j) {
+        if (checkboxItems[i].goods_sku_id == values[j]) {
+          checkboxItems[i].checked = true;
+          break;
+        }
+      }
+    }
+
+    var checkAll = false;
+    if (checkboxItems.length == values.length) {
+      checkAll = true;
+    }
+    this.setData({
+      'goodList': checkboxItems,
+      'checkAll': checkAll
+    });
+    this.calculateTotal();
+  },
+  /**
+  * 用户点击全选
+  */
+  selectalltap: function (e) {
+    // console.log('用户点击全选，携带value值为：', e.detail.value);
+    var value = e.detail.value;
+    var checkAll = false;
+    if (value && value[0]) {
+      checkAll = true;
+    }
+    var goodList = this.data.goodList;
+    for (var i = 0; i < goodList.length; i++) {
+      var good = goodList[i];
+      good['checked'] = checkAll;
+    }
+    
+    this.setData({
+      'checkAll': checkAll,
+      'goodList': goodList
+    });
+    this.calculateTotal();
+  },
 })

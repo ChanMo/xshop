@@ -1,12 +1,11 @@
 <view class="container">
   <scroll-view style="padding-bottom:60px;">
-    <checkbox-group bindchange="_setChecked">
-      <block wx:for="{{cart}}" wx:key="{{index}}">
+    <checkbox-group bindchange="checkboxChange">
+      <block wx:for="{{goodList}}" wx:key="{{index}}">
       <view class="commodity" style="">
         <!-- 选择 -->
         <label class="checkbox" style="align-self:center">
-          <checkbox checked="true" disabled="true"
-            value="{{item.goods_sku_id}}" color="#ff7b03" />
+          <checkbox  value="{{item.goods_sku_id}}" checked='{{item.checked}}' color="#ff7b03" />
         </label>
         <image 
           data-id="{{item.goods_id}}"
@@ -61,14 +60,13 @@
   </scroll-view>
   <view class="footer"> 
     <label class="checkbox">
-      <checkbox-group bindchange="_checkAll">
-        <checkbox value="true" color="#ff7b03" disabled="true"
-          checked="true" /> <text>全选</text>
+      <checkbox-group bindchange="selectalltap">
+        <checkbox  value="true" color="#ff7b03" /> <text>全选</text>
       </checkbox-group>
     </label>
     <view>
       <text>合计: </text>
-      <text class="price">￥{{price}}</text>
+      <text class="price">￥{{totalPrice}}</text>
       <text class="text-grey" style="font-size:12px;"> (不含运费)</text>
     </view>
     <view style="background:#ff7b03;padding: 30rpx 80rpx;" bindtap="submit">
