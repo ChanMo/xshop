@@ -8,7 +8,7 @@
       indicator-dots="true"
       style="height:{{100/1080*673}}vw">
       <block wx:for="{{commodity.detail.images}}" wx:key="{{index}}">
-        <swiper-item>
+        <swiper-item wx:if="{{index !== 0}}">
           <image src="{{item.file_path}}" 
             style="width:100vw;height:{{100/1080*673}}vw" />
         </swiper-item>
@@ -19,8 +19,8 @@
     <view class="container section" style="padding:20px 10px;">
       <view class="row row_between" style="align-items:center;">
         <view class="h3 mb5" 
-          style="flex-grow:1">{{commodity.detail.goods_name}}</view>
-        <button bindtap="onGoPost" plain="true" style="border-width:0px">
+          style="flex-grow:1"><text  wx:if="{{commodity.detail.grab == 10}}" style="color:white;background:red;padding:0 5px;box-sizing:border-box;font-size:12px;margin-right:5px;">限时抢购</text>{{commodity.detail.goods_name}}</view>
+        <button bindtap="onGoPost" plain="true" style="border-width:0px;width:72px;min-width:72px;">
           <image 
             src="../../images/share.png" 
             style="width:44px;height:26.5px" />
@@ -29,6 +29,10 @@
       <view>
         <text class="price" style="font-size:10px;">￥</text>
         <text class="price" style="font-size:18px;font-weight:bold;">{{spec.goods_price}}</text>
+      </view>
+      <view wx:if="{{commodity.detail.grab == 10}}" style="font-size:12px;">
+        <view>开始时间: {{commodity.detail.start_time}}</view>
+        <view>结束时间: {{commodity.detail.end_time}}</view>
       </view>
     </view>
 
@@ -61,7 +65,7 @@
       <text class="text-center text-primary h4">商家详情</text>
       <view>
         <text class="h4 mb10">{{commodity.detail.store_name}}</text>
-        <view class="mb5 small text-grey">营业时间: 上午8:30至下午5:30</view>
+        <view class="mb5 small text-grey">营业时间: {{commodity.detail.bus_hours}}</view>
         <view class="mb5 small text-grey">商家电话: {{commodity.detail.store_phone}}
           <view class="button button-primary button-small float-right"
             bindtap="onCall" 
@@ -79,13 +83,43 @@
       <view class="text-center" style="margin-bottom:10px;">
         <text class="text-primary">商品详情</text>
       </view>
-      <rich-text style="overflow:hidden;"
-        nodes="{{commodity.detail.content}}"></rich-text>
+      <import src="../../wxParse/wxParse.wxml" />
+
+       <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+     
+      <!--<rich-text style="overflow:hidden;"
+        nodes="{{content}}"></rich-text>-->
     </view>
 
   </scroll-view>
-  <view class="action bg-primary text-white" 
-    style="justify-content:center;padding:10px 0;" bindtap="onModalShow">立即购买</view>
+
+  <!-- 底部操作 -->
+  <view class="action">
+    <view style="flex-grow:1;display:flex;">
+      <navigator
+        hover-class="none"
+        open-type="switchTab"
+        url="/pages/index/index"
+        style="padding:0 15px;display:flex;align-items:center;">
+        <image 
+          style="width:30px;height:30px;"
+          src="../../images/首页.png" />
+      </navigator>
+      <navigator
+        hover-class="none"
+        open-type="switchTab"
+        url="/pages/cart/cart"
+        style="padding:0 15px;display:flex;align-items:center;">
+        <image 
+          style="width:24px;height:24px;"
+          src="../../images/购物车2.png" />
+      </navigator>
+    </view>
+    <view
+      bindtap="onModalShow"
+      class="button bg-primary border-primary"
+      style="border:1px solid transparent">立即购买</view>
+  </view>
 </view>
 
 
@@ -98,7 +132,7 @@
     <view style="display:flex;align-items:center;">
       <image 
         src="{{commodity.detail.image}}"
-        style="width:120px;height:120px;" />
+        style="width:120px;height:120px;min-width:120px;" />
       <view style="padding-left:10px;box-sizing:border-box">
         <view style="font-size:14px;">{{commodity.detail.goods_name}}</view>
         <view class="price">{{spec.goods_price}}</view>
