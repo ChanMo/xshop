@@ -20,7 +20,7 @@
     <view class="container section" style="padding:20px 10px;">
       <view>
         <view style="display:flex;justify-content:space-between;align-items:center;">
-          <text class="text">{{commodity.detail.goods_name}}</text>
+          <text class="text"><text  wx:if="{{commodity.detail.grab == 10}}" style="color:white;background:red;padding:0 5px;box-sizing:border-box;font-size:12px;margin-right:5px;">限时抢购</text>{{commodity.detail.goods_name}}</text>
           <button bindtap="onGoPost"  plain="true" style="border-width:0px">
             <image 
               src="../../images/share.png" 
@@ -31,6 +31,10 @@
           <text class="price" style="font-size:10px;">￥</text>
           <text class="price" style="font-size:18px;font-weight:bold;">{{spec.goods_price}}</text>
           <text class="text-grey float-right" style="font-size:14px;">快递:10.00</text>
+        </view>
+        <view wx:if="{{commodity.detail.grab == 10}}" style="font-size:12px;">
+          <view>开始时间: {{commodity.detail.start_time}}</view>
+          <view>结束时间: {{commodity.detail.end_time}}</view>
         </view>
       </view>
     </view>

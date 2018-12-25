@@ -55,7 +55,6 @@ Page({
     let result = this.data.commodity.detail.spec.filter(
       item => item.spec_sku_id == ids
     )
-    console.log(result)
     if(result.length > 0) {
       this.setData({spec: result[0]})
     }
