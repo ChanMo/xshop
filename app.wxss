@@ -132,6 +132,13 @@ input {
   box-sizing: border-box;
   height: auto;
 }
+textarea {
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  width: 100%;
+}
 .form-label {
   margin-bottom: 5px;
 }
