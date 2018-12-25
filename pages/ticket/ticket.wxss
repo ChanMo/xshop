@@ -1,3 +1,4 @@
+@import"../../wxParse/wxParse.wxss";
 page {
   background: #f5f5f5;
 }
