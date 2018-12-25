@@ -9,8 +9,10 @@
     indicator-dots="true">
     <block wx:for="{{banner}}" wx:key="{{index}}"> 
       <swiper-item style="width:100%">
+        <navigator url="{{item.linkUrl}}">
         <image src="{{item.imgUrl}}" 
           style="width:100vw;height:{{100*600/1080}}vw;" />
+      </navigator>
       </swiper-item>
     </block>
   </swiper>
