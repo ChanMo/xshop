@@ -64,7 +64,7 @@ Page({
           link: [
             {"name":"推广中心","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/point.png","tap":"goTo","value":promotionUrl},
             {"name":"买家须知","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/book.png","tap":"goTo","value":"/pages/page/page?slug=2"},
-            {"name":"客服电话","icon":"http://doyou.oss-cn-beijing.aliyuncs.com/icon/user.png","tap":"call","value":"18498985793","right":"18498985793"}
+            { "name": "客服电话", "icon": "http://doyou.oss-cn-beijing.aliyuncs.com/icon/user.png", "tap": "call", "value": "0633-8287298", "right":"0633-8287298"}
           ]
         })
       }
